@@ -1,0 +1,11 @@
+create database DemoDB;
+
+use DemoDB;
+
+create table MYNAMES(
+	firstname VARCHAR(30)
+);
+
+insert into MYNAMES (firstname) VALUES ("Tobi");
+
+select * from MYNAMES;
