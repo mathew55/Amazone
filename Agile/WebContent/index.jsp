@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Welcome</h2>
+	<h2>Welcome to amazone</h2>
 	<form method="post" action="MyServlet">
 	Enter Name: <input type="text" name="name">
 	<input type="submit" value="Say Hello">
