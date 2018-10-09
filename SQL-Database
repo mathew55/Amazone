@@ -1,0 +1,79 @@
+CREATE DATABASE IF NOT EXISTS amazone;
+USE amazone;
+
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE CUSTOMERS (
+	customer_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	customer_firstName VARCHAR(15) NOT NULL,
+	customer_lastName VARCHAR(20) NOT NULL,
+    customer_address VARCHAR(50) NOT NULL,
+    customer_town VARCHAR(50) NOT NULL,
+    customer_username VARCHAR(20) NOT NULL,
+	customer_email VARCHAR(20) NOT NULL);
+
+INSERT INTO customers VALUES ( null, 'Joe', 'Mullins', '12 Castlemaine St.', 'Athlone', 'joeyM', 'joeyM@google.ie');
+INSERT INTO customers VALUES ( null, 'Michael', 'Higgins', 'Áras an Uachtaráin', 'Dublin',  'presidentmicky', 'presidentmicky@yahoo.com');
+INSERT INTO customers VALUES ( null, 'Niall ', 'Tóibín', 'Little Island Road', 'Cork', 'funnyman', 'funnyman@gmail');
+INSERT INTO customers VALUES ( null, 'Frank', 'McCourt', 'Bedford Lane', 'Limerick', 'FMC','fmc@google.ie');
+INSERT INTO customers VALUES ( null, 'Joesph', 'Locke', 'Galway Bay Drive', 'Galway', 'GalwayBayJoe', 'GalwayBayJoe@yahoo.com');
+INSERT INTO customers VALUES ( null, 'William', 'Yeats', '43 Hillview', 'Sligo', 'WBYeats', 'WBYeats@gmail');
+INSERT INTO customers VALUES ( null, 'Enda', 'Kenny', 'Ballina Street', 'Castlebar',  'kennythetwat','kennythetwat@google.ie');
+INSERT INTO customers VALUES ( null, 'James', 'Cullin', 'Ford Ave.', 'Letterkenny',  'JCullin','JCullin@yahoo.com');
+INSERT INTO customers VALUES ( null, 'Brian', 'Cowan', 'Whitehall', 'Tullamore',  'bigbrian','bigbrian@gmail');
+INSERT INTO customers VALUES ( null, 'Patrick', 'Green', '17 Hospital Way', 'Ballinasloe', 'GreenHero','greenhero@google.ie');
+INSERT INTO customers VALUES ( null, 'Shane', 'Long', '4 Cresant Road', 'Tipperary',  'slong89','slong89@yahoo.com');
+
+select * from customers
+ORDER BY customer_firstName ASC;
+#--------------------------------------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS administrators;
+
+CREATE TABLE ADMINISTRATORS (
+	admin_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	admin_firstName VARCHAR(15) NOT NULL,
+	admin_lastName VARCHAR(20) NOT NULL,
+    admin_username VARCHAR(20) NOT NULL);
+
+INSERT INTO administrators VALUES ( null, 'Terry', 'Smith', 'A00008911');
+INSERT INTO administrators VALUES ( null, 'Moharana', 'Bhagyabati', 'A00258759');
+INSERT INTO administrators VALUES ( null, 'Yuan', 'Wang', 'A00258427');
+INSERT INTO administrators VALUES ( null, 'Aribilola', 'Ifeoluwapo', 'A00267252');
+INSERT INTO administrators VALUES ( null, 'Tobenna', 'Ihegborow', 'A00267346');
+INSERT INTO administrators VALUES ( null, 'Mathew', 'Kuriakose', 'A00258755');
+
+select * from administrators
+ORDER BY admin_firstName ASC;
+
+#--------------------------------------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS products;
+
+CREATE TABLE PRODUCTS (
+	product_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	product_Name VARCHAR(20) NOT NULL,
+    product_Manufacturer VARCHAR(20) NOT NULL,
+	product_Price DECIMAL(7,2) NOT NULL,
+    product_Description VARCHAR(100) NOT NULL,
+    product_Quantity_Available INTEGER NOT NULL);
+
+INSERT INTO products VALUES ( null, 'iPod Classic 256 GB', 'Apple Inc.', 399.99, 'Shock proof solid state 256GB SSD inside giving the extended capacity and protection demanding users want. Uprated 800Mah battery pack for up to 40 hours playtime. Comes with Official Apple EarPods and a Brand new Apple official 30 pin cable.', 50);
+INSERT INTO products VALUES ( null, 'Bose QuietComfort 35 (Series II)', 'Bose ', 38.50, 'Bose QuietComfort 35 (Series II) Wireless Headphones, Noise Cancelling with Amazon Alexa control - Black', 40);
+INSERT INTO products VALUES ( null, '1 TB HDD', 'Western Digital', 35.99, '1 TB PC Hard Drive', 14);
+INSERT INTO products VALUES ( null, '16 GB DDR3 RAM', 'HyperX', 110.00, 'HyperX HX318C10FRK2/16 FURY 16 GB (2 x 8 GB) 1866 MHz DDR3 CL10 DIMM Memory Module Kit, Red', 11);
+INSERT INTO products VALUES ( null, 'GIGABYTE Z370P Motherboard', 'Gigabyte', 91.88, 'GIGABYTE Z370P D3 Socket 1151 Z370 Express DDR4 S-ATA 600 ATX Motherboard - Black', 23);
+INSERT INTO products VALUES ( null, 'Intel Core i5', 'Intel', 214.99, 'Intel Core i5-7500 3.40 GHz Base Frequency Quad Core 6 MB Cache CPU Processor - Black', 3);
+INSERT INTO products VALUES ( null, 'Disk Drive', 'Lite-On', 13.40, 'LiteOn IHAS124-14 24x SATA Internal DVD-RW - Grey/Black', 6);
+INSERT INTO products VALUES ( null, 'Xbox One Controller', 'Pyrus', 24.99, 'Xbox One Controller,PYRUS Gamepad Controller Game Controller For Xbox ONE PC Windows7 XP (Wired Black)', 34);
+INSERT INTO products VALUES ( null, 'DVR - 100 Pack', 'Verbatim', 20.29, 'Verbatim 2330529 43549 4.7GB 16x DVD-R Matt Silver - 100 Pack Spindle', 31);
+INSERT INTO products VALUES ( null, '5v Phone Charger', 'EasyAcc', 6.99, 'EasyAcc 5V 2A Micro USB Charger Mains Charger Wall Charger For Samsung S7 S6 Edge J5 J3 S5 S4 S3 Tab 3, Huawei P10 lite P Smart, Nokia Lumia 520 1020 920, Moto G, Android/Windows Smartphones, External Battery, More Micro USB Port Devices [4 Feet Length, Black]', 13);
+INSERT INTO products VALUES ( null, 'Kindle E-Reader', 'Amazon', 59.99, 'Kindle E-Reader, 6" Glare-Free Touchscreen Display, Wi-Fi (Black) - Includes Special Offers', 40);
+INSERT INTO products VALUES ( null, 'Wireless Keyboard', 'Logitech', 25.99, 'Logitech K380 Multi-Device Bluetooth Keyboard for Windows, Mac, Chrome, Android, iOS and Apple TV - QWERTY, UK Layout, Black', 4);
+INSERT INTO products VALUES ( null, 'Fitbit', 'Fitbit', 99.99, 'Fitbit Charge 2 Heart Rate and Fitness Wristband', 48);
+INSERT INTO products VALUES ( null, 'Projector', 'XuanPad', 49.99, 'XuanPad Mini Projector 2400 Lumens Portable video-projector,55000 Hours Multimedia Home Theater movie Projector,Compatible with Amazon Fire TV Stick,Full HD 1080P HDMI,VGA,USB,AV,laptop,iphone,Android Smartphone', 17);
+INSERT INTO products VALUES ( null, 'Infrared Thermometer', 'Etekcity', 12.74, 'Etekcity Lasergrip 1080 Non-contact Digital Laser IR Infrared Thermometer, -50°C ~ 550°C ( -58°F~1022°F ), Yellow/Black', 57);
+INSERT INTO products VALUES ( null, 'Bluetooth Receiver', 'Golvery', 8.40, 'Golvery Bluetooth Receiver (Advanced Bluetooth 4.1, A2DP) - Portable Wireless Bluetooth Audio Adapter with 3.5 mm Jack - Enjoy HiFi Music for Home Audio Car Stereo-16 Hours Playing Long Battery Life', 69);
+
+select * from products
+ORDER BY product_Name ASC;
