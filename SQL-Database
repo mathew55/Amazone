@@ -34,7 +34,7 @@ CREATE TABLE ADMINISTRATORS (
 	admin_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	admin_firstName VARCHAR(15) NOT NULL,
 	admin_lastName VARCHAR(20) NOT NULL,
-    	admin_username VARCHAR(20) NOT NULL);
+    	admin_username VARCHAR(20) NOT NULL); 
 
 INSERT INTO administrators VALUES ( null, 'Terry', 'Smith', 'A00008911');
 INSERT INTO administrators VALUES ( null, 'Moharana', 'Bhagyabati', 'A00258759');
