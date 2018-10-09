@@ -7,9 +7,9 @@ CREATE TABLE CUSTOMERS (
 	customer_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	customer_firstName VARCHAR(15) NOT NULL,
 	customer_lastName VARCHAR(20) NOT NULL,
-    customer_address VARCHAR(50) NOT NULL,
-    customer_town VARCHAR(50) NOT NULL,
-    customer_username VARCHAR(20) NOT NULL,
+    	customer_address VARCHAR(50) NOT NULL,
+   	customer_town VARCHAR(50) NOT NULL,
+    	customer_username VARCHAR(20) NOT NULL,
 	customer_email VARCHAR(20) NOT NULL);
 
 INSERT INTO customers VALUES ( null, 'Joe', 'Mullins', '12 Castlemaine St.', 'Athlone', 'joeyM', 'joeyM@google.ie');
@@ -34,7 +34,7 @@ CREATE TABLE ADMINISTRATORS (
 	admin_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	admin_firstName VARCHAR(15) NOT NULL,
 	admin_lastName VARCHAR(20) NOT NULL,
-    admin_username VARCHAR(20) NOT NULL);
+    	admin_username VARCHAR(20) NOT NULL);
 
 INSERT INTO administrators VALUES ( null, 'Terry', 'Smith', 'A00008911');
 INSERT INTO administrators VALUES ( null, 'Moharana', 'Bhagyabati', 'A00258759');
@@ -53,10 +53,10 @@ DROP TABLE IF EXISTS products;
 CREATE TABLE PRODUCTS (
 	product_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	product_Name VARCHAR(20) NOT NULL,
-    product_Manufacturer VARCHAR(20) NOT NULL,
+    	product_Manufacturer VARCHAR(20) NOT NULL,
 	product_Price DECIMAL(7,2) NOT NULL,
-    product_Description VARCHAR(100) NOT NULL,
-    product_Quantity_Available INTEGER NOT NULL);
+    	product_Description VARCHAR(100) NOT NULL,
+    	product_Quantity_Available INTEGER NOT NULL);
 
 INSERT INTO products VALUES ( null, 'iPod Classic 256 GB', 'Apple Inc.', 399.99, 'Shock proof solid state 256GB SSD inside giving the extended capacity and protection demanding users want. Uprated 800Mah battery pack for up to 40 hours playtime. Comes with Official Apple EarPods and a Brand new Apple official 30 pin cable.', 50);
 INSERT INTO products VALUES ( null, 'Bose QuietComfort 35 (Series II)', 'Bose ', 38.50, 'Bose QuietComfort 35 (Series II) Wireless Headphones, Noise Cancelling with Amazon Alexa control - Black', 40);
