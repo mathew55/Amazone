@@ -53,8 +53,7 @@ public class MyServlet extends HttpServlet {
 		// p.println("<h3>Hello " +name+ "</h3>");
 		// doGet(request, response);
 		
-		String name = request.getParameter("name");
-		
+		String name = request.getParameter("name");	
 		Name A_Name = new Name(name);
 		NameDAO.instance.saveFirstName(A_Name);
 		
