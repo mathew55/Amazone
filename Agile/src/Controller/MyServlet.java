@@ -54,7 +54,7 @@ public class MyServlet extends HttpServlet {
 		// doGet(request, response);
 		
 	//	String name = request.getParameter("name");
-		String id = request.getParameter("name");
+		String id = request.getParameter("pid");
 		int pid = Integer.parseInt(id);
 		//Name A_Name = new Name(pid);
 		//NameDAO.instance.saveFirstName(A_Name);

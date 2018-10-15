@@ -18,7 +18,7 @@ public enum NameDAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/demodb", "root", "admin");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/amazone", "root", "admin");
 			
 			if(connection != null) {
 				System.out.println("Connected to DemoDB OK! ");
@@ -52,7 +52,7 @@ public enum NameDAO {
 		
 		try {
 			PreparedStatement psmt = connection
-					.prepareStatement("SELECT * FROM MYNAMES WHERE product_ID = ?");
+					.prepareStatement("SELECT * FROM products WHERE product_ID = ?");
 			psmt.setInt(1, pid);
 			ResultSet rs = psmt.executeQuery();
 			if(rs.next()) {
