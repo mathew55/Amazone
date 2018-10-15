@@ -20,6 +20,7 @@ h2 {
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Name Database</title>
+<link href=”bootstrap/css/bootstrap.min.css” rel=”stylesheet” type=”text/css” />
 </head>
 <body>
 	<div>
@@ -50,5 +51,6 @@ h2 {
 	<hr>
 	<br>
 	</div>
+	<script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
 </body>
 </html>
