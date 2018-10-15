@@ -19,33 +19,24 @@ h2 {
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Name Database</title>
+<title>Admin Console</title>
 </head>
 <body>
 	<div>
-	<h1 align="center">Welcome</h2>
-	<h4 align="center">to</h4>
-	<h1 align="center">amazone.ie</h3>
+	<h1 align="center">Welcome Admin</h2>
 	<br>
 	<hr>
 	<br>
-	<p><b><i>Enter a name in the text box below and click enter to add it to the MySQL Database</i></b></p>
+	<p><b><i>Enter the product id to view a product</i></b></p>
 	<form method="post" action="MyServlet">
 	<center>
-	Enter Name: <input type="text" name="name">
+	Enter Product Id: <input type="text" name="pid">
 	<input type="submit" value="Enter">
 	</center>
 	</form>
 	<br>
 	<hr>
 	<br>
-	<p><b><i>Enter a name in the text box below and click enter to check if it is in the MySQL Database</i></b></p>
-	<center>
-	<form method="get" action="MyServlet">
-	Enter Name: <input type="text" name="name">
-	<input type="submit" value="Search">
-	</center>
-	</form>
 	<br>
 	<hr>
 	<br>

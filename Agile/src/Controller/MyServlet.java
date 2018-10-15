@@ -30,7 +30,7 @@ public class MyServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		
@@ -53,11 +53,12 @@ public class MyServlet extends HttpServlet {
 		// p.println("<h3>Hello " +name+ "</h3>");
 		// doGet(request, response);
 		
-		String name = request.getParameter("name");
-		
-		Name A_Name = new Name(name);
-		NameDAO.instance.saveFirstName(A_Name);
-		
+	//	String name = request.getParameter("name");
+		String id = request.getParameter("name");
+		int pid = Integer.parseInt(id);
+		//Name A_Name = new Name(pid);
+		//NameDAO.instance.saveFirstName(A_Name);
+		NameDAO.instance.checkFirstName(pid);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
