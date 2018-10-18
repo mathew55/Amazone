@@ -23,17 +23,25 @@ h2 {
 </head>
 <body>
 	<div>
-	<h1 align="center">Welcome Admin</h1>
-	<br>
-	<hr>
-	<br>
-	<p><b><i>Enter the product id to view a product</i></b></p>
-	<form method="post" action="MyServlet">
-	<center>
-	Enter Product Id: <input type="text" name="pid">
-	<input type="submit" value="Enter">
-	</center>
-	</form>
+		${product_Id}
+		<br>
+		${product_Name}
+		<br>
+		${product_Manufacturer}
+		<br>
+		${product_Price}
+		<br>
+		${product_Quantity}
+		<br>
+		<br>
+		<br>
+		<form method="post" action="Updation">
+		<center>
+		 Enter the quantity sold: <input type="text" name="qty">
+		 Product Id : <input type="text" value= ${product_Id} name="pid" readonly>
+		<input type="submit" value="Update DB">
+		</center>
+		</form>
 	<br>
 	<hr>
 	<br>

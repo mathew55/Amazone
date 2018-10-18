@@ -23,17 +23,8 @@ h2 {
 </head>
 <body>
 	<div>
-	<h1 align="center">Welcome Admin</h1>
-	<br>
-	<hr>
-	<br>
-	<p><b><i>Enter the product id to view a product</i></b></p>
-	<form method="post" action="MyServlet">
-	<center>
-	Enter Product Id: <input type="text" name="pid">
-	<input type="submit" value="Enter">
-	</center>
-	</form>
+
+SUCCESS!
 	<br>
 	<hr>
 	<br>

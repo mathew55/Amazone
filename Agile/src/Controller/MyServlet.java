@@ -1,4 +1,6 @@
 package Controller;
+import DAO.NameDAO;
+import DAO.NameDAO.Product;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.NameDAO;
 import model.Name;
-
+import DAO.NameDAO;
 /**
  * Servlet implementation class MyServlet
  */
@@ -58,8 +60,24 @@ public class MyServlet extends HttpServlet {
 		int pid = Integer.parseInt(id);
 		//Name A_Name = new Name(pid);
 		//NameDAO.instance.saveFirstName(A_Name);
-		NameDAO.instance.checkFirstName(pid);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//String str = NameDAO.instance.checkFirstName(pid);
+		//DAO.NameDAO.Product p ;
+		//
+		Product product = NameDAO.instance.checkFirstName(pid);
+		//int product_ID;
+		//StringBuilder product_Name = new StringBuilder("");
+		//StringBuilder product_Manufacturer = new StringBuilder("");
+		//double product_Price=0;
+		//int product_Quantity=0;
+//		product.setter();
+		request.setAttribute("product_Id",product.product_ID);
+		request.setAttribute("product_Name", product.product_Name);
+		request.setAttribute("product_Manufacturer", product.product_Manufacturer);
+		request.setAttribute("product_Price", product.product_Price);
+		request.setAttribute("product_Quantity", product.product_Quantity);
+		
+		//
+		request.getRequestDispatcher("product_info.jsp").forward(request, response);
 	}
 
 }
