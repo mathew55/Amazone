@@ -10,51 +10,148 @@
 </head>
 <body>
 <div class="container">
+<div class="col-lg-12">
+<h2 class ="text-dark header-title"><span><i class="fa fa-tag"></i>Add New Products</span></h2>
 <div class="row">
+
 <div class="col-md-12">
-<form role="form">
-<div class ="col-md-6">
-<div class="form-group col-xs-6">
-<label for="productName">Product Name</label>
-<input type="text" class="form-control" name="productName" id="productName" placeholder="Enter the Product Name" required="true">
+
+<form class="form-horizontal" method="post" action="/AddProductServlet" role="form" id="createProduct">
+
+<div class ="row">
+<div class="col-md-8 col-md-offset4">
+<div class="form-group">
+
+<label class="col-md-3 control-label" for="productName"> Product Name</label>
+
+<div class="col-md-9">
+<input class="form-control" type="text" name="productName" id="productName" placeholder="Enter the Product Name" required="true">
 </div>
 
-<div class="form-group col-xs-6">
-<label for="productDescription">Product Description</label>
+</div>
+
+<div class="form-group">
+
+<label class="col-md-4 control-label" for="productManufacturer"> Product Manufacturer</label>
+
+<div class="col-md-9">
+<input class="form-control" type="text" name="productManufacturer" id="productManufacturer" placeholder="Enter the Product Manufacturer" required="true">
+</div>
+
+</div>
+<div class="form-group">
+
+<label class="col-md-3 control-label" for="productPrice"> Product Price</label>
+
+<div class="col-md-9">
+<input class="form-control" type="text" name="productPrice" id="productName" placeholder="Enter the Product Price" required="true">
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label class="col-md-4 control-label" for="productDescription"> Product Description</label>
+
+<div class="col-md-9">
 <textarea class="form-control" name="productDescription" id="productDescription" placeholder="Enter the Product Description" required="true"></textarea>
 </div>
 
-<div class="form-group col-xs-6">
-<label for="productManufacturer">Product Manufacturer</label>
-<input type="text" class="form-control" name="productManufacturer" id="productManufacturer" placeholder="Enter the Product Manufacturer" required="true">
-</div>
 </div>
 
-<div class="col-md-6 col-offset-1">
-<div class="form-group col-xs-6">
-<label for="productPrice">Product Price</label>
-<input type="text" class="form-control" name="productPrice" id="productPrice" placeholder="Enter the Product Name" required="true">
+<div class="form-group">
+
+<label class="col-md-4 control-label" for="productQuantity">Product Quantity</label>
+
+<div class="col-md-9">
+<input class="form-control" type="text" name="productQuantity" id="productQuantity" placeholder="Enter the Product Quantity" required="true">
 </div>
 
-<div class="form-group col-xs-6">
-<label for="productQuantity">Product Quantity</label>
-<input class="form-control" name="productQuantity" id="productDescription" placeholder="Enter the Product Description" required="true"/>
 </div>
 
-<div class="form-group col-xs-6">
-<label for="exampleInputFile">File input</label>
-<input type="file" id="exampleInputFile" class="form-control">
-<p class="help-block">Example block-level help text here.</p>
+<div class="form-group">
+
+<label class="col-md-3 control-label" for="inputFile"> File Input</label>
+
+<div class="col-md-9">
+<input class="form-control" type="file" name="inputFile" id="inputFile">
 </div>
 
 </div>
 
 
-<button type="submit" class="btn btn-default">Submit</button>
+
+<div class="form-group">
+<div class="col-md-6 col-md-offset-5">
+<button type="submit" class="btn btn-success waves-effect waves-light">
+	<span class="btn-label">
+	Save
+	<i class="fa fa-save"></i>
+	</span>
+	
+</button>
+<button type="reset" class="btn btn-danger waves-light">
+	<span class="btn-label">
+	Cancel
+	<i class="fa fa-times"></i>
+	
+	</span>
+
+</button>
+</div>
+</div>
+
+</div>
+</div>
 </form>
 </div>
+
 </div>
 </div>
-<script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+</div>
+
+<script type ="text/javascript" src="bootstrap/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type ="text/javascript" src="bootstrap/js/jquery.validate.min.js"></script>
+<script type ="text/javascript">
+
+$(function () {
+	
+	$('#createProduct').validate({
+		
+		rules:{
+			productName: "required",
+			productDescription: "required",
+			productPrice: 
+				{
+				required: true,
+				number: true,
+				},
+				
+			productQuantity: {
+				required: true,
+				number: true,
+				},
+			inputFile: "required"
+		},
+		
+		messages: {
+			productName: "Please Enter the Product Name",
+			productDescription: "Please Enter the Product Description to describe the product",
+		    productPrice: {
+		      required: "Please Enter the Product Price",
+		      number: "Please enter a digit for the Product Price"
+		    },
+		    productQuantity: {
+			      required: "Please Enter the Product Quantity",
+			      number: "Please enter a digit for the Product Quantity"
+			    }
+		  }
+	});
+	
+})
+
+
+</script>
 </body>
 </html>
