@@ -14,8 +14,6 @@ Hello World
 Enter Name: <input type ="text" name="name">
 <input type = "submit" value="Say Hello">
 
-hghjgkljgh
-
 </form>
 </body>
 </html>

@@ -16,7 +16,7 @@
 
 <div class="col-md-12">
 
-<form class="form-horizontal" method="post" action="/AddProductServlet" role="form" id="createProduct">
+<form class="form-horizontal" method="post" action="AddProductServlet" enctype="multipart/form-data" role="form" id="createProduct">
 
 <div class ="row">
 <div class="col-md-8 col-md-offset4">
@@ -74,7 +74,7 @@
 <label class="col-md-3 control-label" for="inputFile"> File Input</label>
 
 <div class="col-md-9">
-<input class="form-control" type="file" name="inputFile" id="inputFile">
+<input class="form-control" type="file" name="inputFile" id="inputFile" size="50">
 </div>
 
 </div>
@@ -132,7 +132,6 @@ $(function () {
 				required: true,
 				number: true,
 				},
-			inputFile: "required"
 		},
 		
 		messages: {
