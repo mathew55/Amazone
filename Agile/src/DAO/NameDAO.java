@@ -18,7 +18,7 @@ public enum NameDAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/DemoDB", "root", "admin");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/DemoDB", "root", "admin");
 			
 			if(connection != null) {
 				System.out.println("Connected to DemoDB OK! ");
