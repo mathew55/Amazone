@@ -23,35 +23,15 @@ h2 {
 </head>
 <body>
 	<div>
-	<hr>
-	<h3>Product Details</h3>>
 	<table border ="2">
 		<tr>
 			<td align="left">Product Id</td>
 			<td> ${product_Id}</td>
 		</tr>
-		<tr>
-			<td align="left">Name</td>
-			<td> ${product_Name}</td>
-		</tr>
-		<tr>
-			<td align="left">Manufacturer</td>
-			<td> ${product_Manufacturer}</td>
-		</tr>
-		<tr>
-			<td align="left">Price</td>
-			<td> ${product_Price}</td>
-		</tr>
-		<tr>
 			<td align="left">Quantity Available</td>
-			<td>${product_Quantity}</td>
+			<td>${product_qty}</td>
 		</tr>
 	</table>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 		<form method="post" action="UpdationServlet">
 		<center>
 		 Enter the quantity sold: <input type="text" name="qty">
@@ -59,6 +39,8 @@ h2 {
 		</center>
 		</form>
 	<br>
+	<hr>
+	Sorry, The updation will put the stock available to negative. Try Again!
 	<br>
 	<br>
 	<hr>

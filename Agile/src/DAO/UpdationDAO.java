@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.Name;
+import model.Product;
 
 public enum UpdationDAO {
 	
@@ -38,14 +38,7 @@ public enum UpdationDAO {
 					.prepareStatement("UPDATE products set product_Quantity_Available = ? where product_ID = ?");
 			psmt.setInt(1, qty);
 			psmt.setInt(2, pid1);
-System.out.println("xsfas");
-//			if(psmt.executeUpdate()!=0) {
-//				flag= 1;
-//			}
-//			else {
-//				flag = 0;
-//			}
-flag =psmt.executeUpdate();
+			flag =psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

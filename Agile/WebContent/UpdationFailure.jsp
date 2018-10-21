@@ -10,7 +10,7 @@ div {
     border-radius: 5px;
     padding: 25px;
     margin: 25px;
-    background-color: green;
+    background-color: brown;
     
 }
 h2 {
@@ -24,9 +24,12 @@ h2 {
 <body>
 	<div>
 
-Failed!
+	Updation Failed!
 	<br>
-	<hr>
+	<br>
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<hr>
