@@ -37,9 +37,9 @@ public class MyServlet extends HttpServlet {
 		System.out.println("checking for name in db");
 		
 		String name = request.getParameter("name");
-		
+		//Object obj =null;
+		//obj=NameDAO.instance.checkFirstName(name);
 		NameDAO.instance.checkFirstName(name);
-		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
