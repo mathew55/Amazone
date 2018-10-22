@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.ProductDAO;
+import dao.ProductDAO;
 import model.Product;
 
 @WebServlet("/ProductServlet")

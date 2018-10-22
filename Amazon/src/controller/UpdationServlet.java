@@ -1,8 +1,8 @@
 package controller;
 
-import DAO.ProductDAO;
+import dao.ProductDAO;
 import model.Product;
-import DAO.UpdationDAO;
+import dao.UpdationDAO;
 
 import java.io.IOException;
 import java.io.PrintWriter;
