@@ -33,6 +33,7 @@ var flg=0;
 if(dpno==""){
 s1.innerHTML="Please input items number";
 tep=1;
+
 }else{
 s1.innerHTML="";
 }

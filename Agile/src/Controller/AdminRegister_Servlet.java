@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import agile.TeamA.Registerandlogin_service.impl.Register_Service_impl;
+import agile.TeamA.Registerandlogin_service.impl.Register_Login_Service_impl;
 import agile.TeamA.Registerandlogin_serviceI.Register_Login_Service;
 import agile.TeamA.Vo.Admin_RegisterLogin_Vo;
 /**
@@ -54,13 +54,13 @@ public class AdminRegister_Servlet extends HttpServlet {
 		admininformation.setAdminName(AdminName);
 		admininformation.setLastName(LastName);
 		try {
-			Register_Service_impl Register_Service=new Register_Service_impl();
+			Register_Login_Service_impl Register_Service=new Register_Login_Service_impl();
 			Register_Service.RegisterAdmin(admininformation);
 			
 			String message = String.format(
 					                     "Register successful!!Automatically jump to the login page for you after 3 seconds!!"
 					                     + "<meta http-equiv='refresh' content='3;url=%s'/>", 
-					                    request.getContextPath()+"/servlet/LoginUIServlet");
+					                    request.getContextPath()+"/adminlogin.jsp");
 					            request.setAttribute("message",message);
 					            request.getRequestDispatcher("/message.jsp").forward(request,response);
 			

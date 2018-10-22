@@ -10,5 +10,5 @@ public interface Register_Login_Service {
 	
 	
 	// Use for supply Login service
-	void LoginAdmin(Admin_RegisterLogin_Vo Admin);
+	boolean LoginAdmin(Admin_RegisterLogin_Vo Admin) throws Exception;
 }

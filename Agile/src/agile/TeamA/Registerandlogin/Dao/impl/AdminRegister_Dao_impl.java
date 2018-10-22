@@ -5,23 +5,37 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import agile.TeamA.Registerandlogin.DaoI.AdminRegister_Interface;
+import agile.TeamA.Registerandlogin.DaoI.AdminRegister_Login_Interface;
 import agile.TeamA.Vo.Admin_RegisterLogin_Vo;
 import agile.TeamA.utils.Dbmanage;
 import model.Name;
 
-public class AdminRegister_Dao_impl implements AdminRegister_Interface {
+public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 	/*
 	 * Implementation class for AdminRegister_Interface
 	 * 
 	 */
 
 	@Override
-	public Admin_RegisterLogin_Vo adminfind(String adminname, String adminpwd) {
-		return null;
-		// TODO Auto-generated method stub
-		
-
+	public Boolean adminfind(String adminname, String adminpwd) {
+		Dbmanage dbmanage = new Dbmanage();
+		Connection conn = null;
+		Statement sta = null;
+		try {
+			conn=dbmanage.initDB();
+			//String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
+			PreparedStatement psmt = conn.prepareStatement("SELECT * FROM ADMINISTRATORS WHERE admin_username=(?) and admin_password=(?)");
+			psmt.setString(1, adminname);
+			psmt.setString(2, adminpwd);
+			ResultSet rs=psmt.executeQuery();
+			while(rs.next()) {
+				
+				return true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}	
+		return false;		
 	}
 	// register a admin account
 	@Override
@@ -46,33 +60,34 @@ public class AdminRegister_Dao_impl implements AdminRegister_Interface {
 
 	@Override
 	public Admin_RegisterLogin_Vo adminfind(String AdminName) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 		Admin_RegisterLogin_Vo admin=new Admin_RegisterLogin_Vo();
 		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
 		//Statement sta = null;
-		Admin_RegisterLogin_Vo adminName =null;
+		Admin_RegisterLogin_Vo admin1 =new Admin_RegisterLogin_Vo();
+		String adminName =null;
 		try {
 			conn=dbmanage.initDB();
 			//String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
 			PreparedStatement psmt = conn.prepareStatement("SELECT * FROM ADMINISTRATORS WHERE admin_username=(?)");
 			psmt.setString(1, AdminName);
 			ResultSet rs=psmt.executeQuery();
-			if(rs.next()) {
-				adminName = new Admin_RegisterLogin_Vo(admin.getAdminName());
-				
+			while(rs.next()) {
+				adminName = rs.getString("admin_username");
+				admin1.setAdminName(adminName);
 				System.out.println("name"+adminName+"is in the data base");
-			}else {
-				System.out.println("name"+adminName+"is not in the data base");
 				
 			}
+				System.out.println("name"+adminName+"is not in the data base");
+				
+				return null;
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return admin;
-		
+		return admin1;
+	
 	}
 
 }
