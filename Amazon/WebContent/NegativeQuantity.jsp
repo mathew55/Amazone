@@ -23,17 +23,24 @@ h2 {
 </head>
 <body>
 	<div>
-	<h4 align="left">Stock Updation Page</h4>
+	<table border ="2">
+		<tr>
+			<td align="left">Product Id</td>
+			<td> ${product_Id}</td>
+		</tr>
+			<td align="left">Quantity Available</td>
+			<td>${product_qty}</td>
+		</tr>
+	</table>
+		<form method="post" action="UpdationServlet">
+		<center>
+		 Enter the quantity sold: <input type="text" name="qty">
+		<input type="submit" value="Update DB">
+		</center>
+		</form>
 	<br>
 	<hr>
-	<br>
-	<p><b><i>Enter the product id to get details of the product from the inventory</i></b></p>
-	<form method="post" action="ProductServlet">
-	<center>
-	Product Id: <input type="text" name="pid">
-	<input type="submit" value="Enter">
-	</center>
-	</form>
+	Sorry, The updation will put the stock available to negative. Try Again!
 	<br>
 	<br>
 	<hr>
