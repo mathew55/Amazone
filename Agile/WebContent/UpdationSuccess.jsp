@@ -23,17 +23,13 @@ h2 {
 </head>
 <body>
 	<div>
-	<h4 align="left">Stock Updation Page</h4>
+
+SUCCESS!
 	<br>
-	<hr>
 	<br>
-	<p><b><i>Enter the product id to get details of the product from the inventory</i></b></p>
-	<form method="post" action="ProductServlet">
-	<center>
-	Product Id: <input type="text" name="pid">
-	<input type="submit" value="Enter">
-	</center>
-	</form>
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<hr>
