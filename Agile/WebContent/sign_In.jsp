@@ -61,11 +61,11 @@
 	}
 	/* use this part to check register information */
 	function checkinfo() {
-		var adno = document.frm1.AdminID.value;
+		var adfirstname = document.frm1.FirstName.value;
+		var adlastname = document.frm1.LastName.value;
 		var adname = document.frm1.AdminName.value;
 		var adpwd = document.frm1.AdminPwd.value;
 		var advtypwd = document.frm1.vtyAdminPwd.value;
-		var ademail = document.frm1.EmailAddress.value;
 		var c1 = document.getElementById("c01");
 		var c2 = document.getElementById("c02");
 		var c3 = document.getElementById("c03");
@@ -74,52 +74,52 @@
 		var tep = 0;
 		var flg = 0;
 		/* verfity adminid */
-		if (adno == "") {
-			c1.innerHTML = "Please input admin number";
+		if (adfirstname == "") {
+			c1.innerHTML = "Please input admin firstname";
 			tep = 1;
 		} else {
 			c1.innerHTML = "";
 		}
 		/*verfity adminpwd  */
 		if (adpwd == "") {
-			c2.innerHTML = "Please input admin password!";
+			c3.innerHTML = "Please input admin password!";
 			tep = 1;
 		} else {
-			c2.innerHTML = "admin password is good";
+			c3.innerHTML = "admin password is good";
 		}
 		/*verfity admin password tow times is same  */
 
 		if (advtypwd.equals(adpwd)) {
-			c3.innerHTML = "two time password is same";
+			c4.innerHTML = "two time password is same";
 			tep = 1;
 		} else {
-			c3.innerHTML = "two time password is not same!";
+			c4.innerHTML = "two time password is not same!";
 		}
 		/* verfity adminname*/
-		if (dpname == "") {
-			c4.innerHTML = "Please input admin name!";
-			tep = 1;
-		} else {
-			c4.innerHTML = "";
-		}
-		/* verfity adminEmailaddress*/
-		if (dpname == "") {
-			c5.innerHTML = "Please input admin emailaddress!";
+		if (adname == "") {
+			c5.innerHTML = "Please input admin name!";
 			tep = 1;
 		} else {
 			c5.innerHTML = "";
 		}
-		/* 		var vl = "^[I]{1}[T]{1}[0-9]{3}$";
-
+		/* verfity adlastname*/
+		if (adlastname == "") {
+			c2.innerHTML = "Please input admin lastname!";
+			tep = 1;
+		} else {
+			c2.innerHTML = "";
+		}
+		//var vl = "^[A]{1}[T]{1}[0-9]{8}$";
+		 var vl = "^[A]{1}[0-9]{8}$";
 		 var jm = new RegExp(vl);
 
-		 var te = jm.test(adno);
+		 var te = jm.test(adname);
 		 if (te == true) {
-		 c1.innerHTML = "";
+		 c1.innerHTML = " ";
 		 } else {
 		 c1.innerHTML = "Your AdminID is illegal";
 		 flg = 1;
-		 } */
+		 } 
 		if (tep == 0 && flg == 0) {
 			alert("admin register scuessful");
 			return true;
@@ -129,7 +129,7 @@
 		}
 	}
 	/*  verfity password as same */
-	function checkpwd() {
+	/* function checkpwd() {
 		var adpwd = document.frm1.AdminPwd.value;
 		var advtypwd = document.frm1.vtyAdminPwd.value;
 		if (advtypwd.equals(adpwd)) {
@@ -139,7 +139,7 @@
 			c3.innerHTML = "two time password is not same!";
 		}
 	}
-
+ */
 	/* use this part to cancle register */
 	function cancle() {
 		var tem = confirm("Would you like cancle register?");
@@ -166,37 +166,38 @@
 				border="3px" id="table211" height="328">
 				<tr>
 
-					<td align="center">AccountID:&nbsp;&nbsp;</td>
+					<td align="center">FirstName:&nbsp;&nbsp;</td>
 					<td colspan="2"><input type="hidden" value="register"
-						name="type" /> <input name="AdminID" type="text"><span
+						name="type" /> <input name="FirstName" type="text"><span
 						id="c01"></span></td>
+				</tr>
+				<tr>
+					<td align="center">LastName:&nbsp;&nbsp;</td>
+					<td colspan="2"><input name="LastName" type="text"><span
+						id="c02"></span></td>
 				</tr>
 				<tr>
 					<td align="center">Password:&nbsp;&nbsp;</td>
 					<td colspan="2"><input name="AdminPwd" type="password"><span
-						id="c02"></span></td>
+						id="c03"></span></td>
 				</tr>
 				<tr>
 					<td align="center">VerityPassword:&nbsp;&nbsp;</td>
 					<td colspan="2"><input name="vtyAdminPwd" type="password">
-					<span id="c03"></span></td>
+					<span id="c04"></span></td>
 				</tr>
 				<tr>
 					<td align="center">AdminName:&nbsp;&nbsp;</td>
 					<td colspan="2"><input name="AdminName" type="text"><span
-						id="c04"></span></td>
+						id="c05">A+ 8 numbers</span></td>
 				</tr>
-				<tr>
-					<td align="center">EmailAddress:&nbsp;&nbsp;</td>
-					<td colspan="2"><input name="EmailAddress" type="text"><span
-						id="c05"></span></td>
-				</tr>
-				<tr>
+				
+				<!-- <tr>
 					<td align="center">VerificationCode:&nbsp;&nbsp;</td>
 					<td colspan="2"><input name="verifty" type=text maxLength=4
 						size=10> <img id="vcimgs" src="/Agile/VCImages"> <a
 						href="javascript:_refeshimg();">change</a></td>
-				</tr>
+				</tr> -->
 			</table>
 			<br>
 			<table align="center">

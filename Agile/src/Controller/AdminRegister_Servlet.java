@@ -41,18 +41,18 @@ public class AdminRegister_Servlet extends HttpServlet {
 		
 		//String type=request.getParameter("type");
 		
-			String AdminID=request.getParameter("AdminID");
+			String FirstName=request.getParameter("FirstName");
 			String AdminPwd=request.getParameter("AdminPwd");
 			String vtyAdminPwd=request.getParameter("vtyAdminPwd");
 			String AdminName=request.getParameter("AdminName");
-			String EmailAddress=request.getParameter("EmailAddress");
+			String LastName=request.getParameter("LastName");
 		
 		Admin_RegisterLogin_Vo admininformation=new Admin_RegisterLogin_Vo();
-		admininformation.setAdminID(AdminID);
+		admininformation.setFirstName(FirstName);
 		admininformation.setAdminPwd(AdminPwd);
 		admininformation.setvtyAdminPwd(vtyAdminPwd);
 		admininformation.setAdminName(AdminName);
-		admininformation.setEmailAddress(EmailAddress);
+		admininformation.setLastName(LastName);
 		try {
 			Register_Service_impl Register_Service=new Register_Service_impl();
 			Register_Service.RegisterAdmin(admininformation);

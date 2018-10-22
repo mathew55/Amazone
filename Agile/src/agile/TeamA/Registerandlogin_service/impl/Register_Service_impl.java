@@ -11,13 +11,13 @@ public class Register_Service_impl implements Register_Login_Service{
 		// TODO Auto-generated method stub
 		String pwd=Admin.getAdminPwd();
 		String vtypwd=Admin.getvtyAdminPwd();
-		String AdminID=Admin.getAdminID();
+		String AdminName=Admin.getAdminName();
 		if(!pwd.equals(vtypwd)) {
 			  throw new Exception("Inconsistent entry password!");
 		}
 		AdminRegister_Dao_impl adi=new AdminRegister_Dao_impl();
 		;
-		if(adi.adminfind(AdminID)!=null) {
+		if(adi.adminfind(AdminName)!=null) {
 			throw new Exception("Admin ID already exists");
 		}
 		adi.register(Admin);

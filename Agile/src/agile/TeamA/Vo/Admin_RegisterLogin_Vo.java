@@ -1,8 +1,8 @@
 package agile.TeamA.Vo;
 
 public class Admin_RegisterLogin_Vo {
-	 private  String  AdminID;
-	  private String EmailAddress;
+	  private String  FirstName;
+	  private String LastName;
 	  private String AdminPwd;
 	  private String AdminName;
 	  private String vtyAdminPwd;
@@ -25,20 +25,20 @@ public class Admin_RegisterLogin_Vo {
 	    this.vtyAdminPwd = vtyAdminPwd;
 	  }
 
-	  public String getAdminID() {
-	    return this.AdminID;
+	  public String getFirstName() {
+	    return this.FirstName;
 	  }
 
-	  public void setAdminID(String AdminID) {
-	    this.AdminID = AdminID;
+	  public void setFirstName(String FirstName) {
+	    this.FirstName = FirstName;
 	  }
 
-	  public String getEmailAddress() {
-	    return this.EmailAddress;
+	  public String getLastName() {
+	    return this.LastName;
 	  }
 
-	  public void setEmailAddress(String EmailAddress) {
-	    this.EmailAddress = EmailAddress;
+	  public void setLastName(String LastName) {
+	    this.LastName = LastName;
 	  }
 
 	  public String getAdminPwd() {
@@ -49,24 +49,29 @@ public class Admin_RegisterLogin_Vo {
 	    this.AdminPwd = AdminPwd;
 	  }
 
-	  public Admin_RegisterLogin_Vo(String AdminID, String EmailAddress, String AdminPwd)
+	  public Admin_RegisterLogin_Vo(String FirstName, String LastName, String AdminPwd)
 	  {
-	    this.AdminID = AdminID;
-	    this.EmailAddress = EmailAddress;
+	    this.FirstName = FirstName;
+	    this.LastName = LastName;
 	    this.AdminPwd = AdminPwd;
 	  }
 
-	  public Admin_RegisterLogin_Vo(String AdminID, String EmailAddress, String AdminPwd, String AdminName)
+	  public Admin_RegisterLogin_Vo(String FirstName, String LastName, String AdminPwd, String AdminName)
 	  {
-	    this.AdminID = AdminID;
-	    this.EmailAddress = EmailAddress;
+	    this.FirstName = FirstName;
+	    this.LastName = LastName;
 	    this.AdminPwd = AdminPwd;
 	    this.AdminName = AdminName;
 	  }
 
-	  public Admin_RegisterLogin_Vo(String AdminID, String AdminPwd)
+	  public Admin_RegisterLogin_Vo(String AdminName)
 	  {
-	    this.AdminID = AdminID;
+	    this.AdminName = AdminName;
+	  }
+
+	  public Admin_RegisterLogin_Vo(String FirstName, String AdminPwd)
+	  {
+	    this.FirstName = FirstName;
 	    this.AdminPwd = AdminPwd;
 	  }
 
