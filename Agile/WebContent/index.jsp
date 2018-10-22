@@ -8,9 +8,9 @@
 </head>
 <body>
 	<h2>Welcome to My World</h2>
-	<form method="post" action="MyServlet">
+	<form method="post" action="Search">
 	Enter Name: <input type="text" name="name">
 	<input type="submit" value="Say Hello">
-	</form>
+	<input type="button" onclick="window.location.href='Search.jsp'">	</form>
 </body>
 </html>

@@ -67,7 +67,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-heading">SHOE</div>
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
       </div>
@@ -145,9 +145,9 @@
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>  
-  <form class="form-inline">Look for Items:
-    <input type="search" class="form-control" size="50" placeholder="Search">
-    <button type="button" class="btn btn-danger">Search</button>
+  <form class="form-inline" method="get" action="Search">Look for Items:
+    <input type="search" class="form-control" size="50" placeholder="Search" name="searchProduct">
+    <button type="submit" class="btn btn-danger">Search</button>
   </form>
 </footer>
 
