@@ -56,7 +56,8 @@ CREATE TABLE PRODUCTS (
     	product_Manufacturer VARCHAR(20) NOT NULL,
 	product_Price DECIMAL(7,2) NOT NULL,
     	product_Description VARCHAR(1000) NOT NULL,
-    	product_Quantity_Available INTEGER NOT NULL);
+    	product_Quantity_Available INTEGER NOT NULL,
+        product_Image mediumblob DEFAULT NULL);
 
 INSERT INTO products VALUES ( null, 'iPod Classic 256 GB', 'Apple Inc.', 399.99, 'Shock proof solid state 256GB SSD inside giving the extended capacity and protection demanding users want. Uprated 800Mah battery pack for up to 40 hours playtime. Comes with Official Apple EarPods and a Brand new Apple official 30 pin cable.', 50);
 INSERT INTO products VALUES ( null, 'Bose QuietComfort 35 (Series II)', 'Bose ', 38.50, 'Bose QuietComfort 35 (Series II) Wireless Headphones, Noise Cancelling with Amazon Alexa control - Black', 40);
