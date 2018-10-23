@@ -34,14 +34,16 @@ CREATE TABLE ADMINISTRATORS (
 	admin_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
 	admin_firstName VARCHAR(15) NOT NULL,
 	admin_lastName VARCHAR(20) NOT NULL,
-    	admin_username VARCHAR(20) NOT NULL); 
+    	admin_username VARCHAR(20) NOT NULL,
+	admin_pasword  VARCHAR (20) NOT NULL
+	); 
 
-INSERT INTO administrators VALUES ( null, 'Terry', 'Smith', 'A00008911');
-INSERT INTO administrators VALUES ( null, 'Moharana', 'Bhagyabati', 'A00258759');
-INSERT INTO administrators VALUES ( null, 'Yuan', 'Wang', 'A00258427');
-INSERT INTO administrators VALUES ( null, 'Aribilola', 'Ifeoluwapo', 'A00267252');
-INSERT INTO administrators VALUES ( null, 'Tobenna', 'Ihegborow', 'A00267346');
-INSERT INTO administrators VALUES ( null, 'Mathew', 'Kuriakose', 'A00258755');
+INSERT INTO administrators VALUES ( null, 'Terry', 'Smith', 'A00008911','123456');
+INSERT INTO administrators VALUES ( null, 'Moharana', 'Bhagyabati', 'A00258759','123456');
+INSERT INTO administrators VALUES ( null, 'Yuan', 'Wang', 'A00258427','123456');
+INSERT INTO administrators VALUES ( null, 'Aribilola', 'Ifeoluwapo', 'A00267252','123456');
+INSERT INTO administrators VALUES ( null, 'Tobenna', 'Ihegborow', 'A00267346','123456');
+INSERT INTO administrators VALUES ( null, 'Mathew', 'Kuriakose', 'A00258755','123456');
 
 select * from administrators
 ORDER BY admin_firstName ASC;
