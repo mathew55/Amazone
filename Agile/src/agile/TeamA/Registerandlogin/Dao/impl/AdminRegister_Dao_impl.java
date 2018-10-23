@@ -8,7 +8,6 @@ import java.sql.Statement;
 import agile.TeamA.Registerandlogin.DaoI.AdminRegister_Login_Interface;
 import agile.TeamA.Vo.Admin_RegisterLogin_Vo;
 import agile.TeamA.utils.Dbmanage;
-import model.Name;
 
 public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 	/*
