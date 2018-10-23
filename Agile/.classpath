@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils-1.9.3.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-dbutils-1.6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging-1.2.jar"/>
@@ -12,4 +13,21 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/apache-tomcat-9.0.12/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
+=======
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_131">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/A00267346/Desktop/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+>>>>>>> refs/remotes/origin/Tobe
 </classpath>
