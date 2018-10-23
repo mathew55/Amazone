@@ -28,7 +28,7 @@
 </tr>
 </table>
 </div>
-<!-- <input type="button" value="tex_Login" onclick="window.location.href='homepage.html'"> -->
+ <input type="button" value="tex_Login" onclick="window.location.href='homepage.html'"> 
 </form>
 </body>
 </html>
