@@ -84,15 +84,15 @@ footer {
 
 <div class="w3-content w3-display-container">
 
-  <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/1.jpg" style="width:100%">
-  <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/2.jpg" style="width:100%">
-  <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/3.jpg" style="width:100%">
-  <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/4.jpg" style="width:100%">
-  <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/5.jpg" style="width:100%">
-  <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/6.jpg" style="width:100%">
-   <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/8.jpg" style="width:100%">
+  <img class="mySlides" src="images/1.jpg" style="width:100%">
+  <img class="mySlides" src="images/2.jpg" style="width:100%">
+  <img class="mySlides" src="images/3.jpg" style="width:100%">
+  <img class="mySlides" src="images/4.jpg" style="width:100%">
+  <img class="mySlides" src="images/5.jpg" style="width:100%">
+  <img class="mySlides" src="images/6.jpg" style="width:100%">
+   <img class="mySlides" src="images/8.jpg" style="width:100%">
 
-     <img class="mySlides" src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/10.jpg" style="width:100%">
+     <img class="mySlides" src="images/10.jpg" style="width:100%">
    
   
 
@@ -163,6 +163,12 @@ function showDivs(n) {
 
 </article>
 </section>
+<div>
+<footer>
+<img src = "images/admin.jpg" alt = "Administrator" style = "width:100px;">
+<input type= "button" value ="Administrator" name= "button2" onclick="window.location.href='adminlogin.jsp'">
+</footer>
+</div>
 </form>
 </body>
 </html>
