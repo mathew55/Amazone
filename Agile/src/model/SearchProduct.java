@@ -2,16 +2,16 @@ package model;
 
 public class SearchProduct {
 
-	private String keyword;
+	private String productName;
 	
-	public SearchProduct(String keyword) {
+	public SearchProduct(String productName) {
 		
-		this.keyword = keyword;
+		this.productName = productName;
 		
 	}
 	
 	public String setProductName(String productName) {
-		return this.keyword = productName;
+		return this.productName = productName;
 	}
 	
 }

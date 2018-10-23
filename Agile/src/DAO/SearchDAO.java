@@ -7,7 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import model.Name;
 import model.SearchProduct;
 
 public enum SearchDAO {
@@ -31,35 +33,51 @@ public enum SearchDAO {
 	}
 
 	
-	public void getSearchedParameter(String keyword)
+	public ArrayList getSearchedParameter(String keyword)
 	{
 		
 		Connection connection = getConnection();
 		
-		SearchProduct search = null;
+		ArrayList search = null;
+		ArrayList pid_list = new ArrayList();
 		
 		try {
-			PreparedStatement psmt = connection.prepareStatement("SELECT * FROM products WHERE product_Name=(?)");
+			
+			PreparedStatement psmt = connection.prepareStatement("SELECT * FROM products WHERE product_Name= ?");
+			
 			psmt.setString(1, keyword);
 			ResultSet res = psmt.executeQuery();
 			
-			if(res.next()) {
-				search = new SearchProduct(res.getString("product_Name"));
-						
-			}
-			else {
+			if(keyword!=null && !keyword.equals("")){
+				System.out.println("Keyword " + keyword +" posted to database.");
+			
+				SearchProduct searchpd = new SearchProduct(keyword);
+				
+				// psmt = keyword;
+				while (res.next()) {
+					//searchpd.setProductName(res.getString("product_Name"));
+					search = new ArrayList();
+
+	                search.add(res.getString("product_Name"));
+	                //al.add(rs.getString(2));
+	               // al.add(rs.getString(3));
+	               // al.add(rs.getString(4));
+	                System.out.println("search :: " + search);
+	                pid_list.add(search);
+	            }
 				
 			}
 			
 			
-			//System.out.println("Added " +A_Name.getFirstName() +" to the database.");
+			
+			
+			System.out.println("Searched " + search +" from the database.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-			
+		return search;	
 	}
 }
-
 
 
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.NameDAO;
 import DAO.SearchDAO;
+import model.Name;
 
 /**
  * Servlet implementation class Search
@@ -28,26 +29,39 @@ public class Search extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String keyword = request.getParameter("searchProduct");
 		
-		SearchDAO.instance.getSearchedParameter(keyword);
+			
+			SearchDAO.instance.getSearchedParameter(keyword);
+			//request.setAttribute("searchProduct", keyword);
+			request.getRequestDispatcher("Search.jsp").forward(request, response);
+		}
 		
-		request.getRequestDispatcher("Search.jsp").forward(request, response);
-	}
+		
+		
+		
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
 		
+		//String name = request.getParameter("name");
 		
+		//Name A_Name = new Name(name);
+		//NameDAO.instance.saveFirstName(A_Name);
+		
+		//request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }
