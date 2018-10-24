@@ -9,14 +9,14 @@
 <body>
 <div align="center"><h1 >AMAZON ADMIN LOGIN</h1></div>
 
-<form action="/Agile/AdminLogin_Servlet" method="post">
+<form action="/Amazon/AdminLogin_Servlet" method="post">
 <div align="center">
 <table align="center">
 <tr>
-<td>AdminName:&nbsp;&nbsp;<input type="text" value="please input your adminname" size="30"></td>
+<td>AdminName:&nbsp;&nbsp;<input type="text" value="please input your adminname" name="AdminName" size="30"></td>
 </tr>
 <tr>
-<td>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" size="31"></td>
+<td>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="AdminPwd" size="31"></td>
 </tr>
 <tr><td>
 <input type="submit" value="Login">
@@ -28,7 +28,6 @@
 </tr>
 </table>
 </div>
- <input type="button" value="tex_Login" onclick="window.location.href='adminmanagement.html'"> 
 </form>
 </body>
 </html>

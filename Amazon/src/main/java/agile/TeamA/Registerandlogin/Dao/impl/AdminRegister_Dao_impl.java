@@ -19,7 +19,7 @@ public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 	public Boolean adminfind(String adminname, String adminpwd) {
 		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
-		Statement sta = null;
+		//Statement sta = null;
 		try {
 			conn=dbmanage.initDB();
 			//String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
@@ -42,18 +42,24 @@ public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 		// TODO Auto-generated method stub
 		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
-		Statement sta = null;
+		//Statement sta = null;
 		try {
 			conn = dbmanage.initDB();
-			String sql = "INSERT INTO ADMINISTRATORS VALUES(" + admin.getFirstName() + ',' + admin.getAdminName() + ','
+			PreparedStatement psmt = conn.prepareStatement("INSERT INTO ADMINISTRATORS (admin_firstName,admin_lastName,admin_username,admin_pasword) VALUES(????)");
+			psmt.setString(1, admin.getFirstName());
+			psmt.setString(2, admin.getLastName());
+			psmt.setString(3, admin.getAdminName());
+			psmt.setString(4, admin.getAdminPwd());
+			psmt.executeUpdate();
+			/*String sql = "INSERT INTO ADMINISTRATORS VALUES(" + admin.getFirstName() + ',' + admin.getAdminName() + ','
 					+ admin.getAdminPwd() + ',' + admin.getLastName() + ")";
-			sta.executeQuery(sql);
+			sta.executeQuery(sql);*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		} /*finally {
 			dbmanage.closeDB(sta, conn);
-		}
+		}*/
 
 	}
 
@@ -76,6 +82,7 @@ public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 				adminName = rs.getString("admin_username");
 				admin1.setAdminName(adminName);
 				System.out.println("name"+adminName+"is in the data base");
+				return admin1;
 				
 			}
 				System.out.println("name"+adminName+"is not in the data base");

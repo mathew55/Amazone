@@ -48,7 +48,7 @@ public class AdminLogin_Servlet extends HttpServlet {
 				request.getRequestDispatcher("/message.jsp").forward(request, response);
 			} else {
 				request.setAttribute("error", "The account or password you entered is incorrect. Please re-enter!");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
+				request.getRequestDispatcher("adminlogin.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

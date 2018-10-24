@@ -7,40 +7,50 @@ import agile.TeamA.Vo.Admin_RegisterLogin_Vo;
 public class Register_Login_Service_impl implements Register_Login_Service{
 
 	@Override
-	public void RegisterAdmin(Admin_RegisterLogin_Vo Admin) throws Exception {
+	public boolean RegisterAdmin(Admin_RegisterLogin_Vo Admin){
 		// TODO Auto-generated method stub
 		String pwd=Admin.getAdminPwd();
 		String vtypwd=Admin.getvtyAdminPwd();
 		String AdminName=Admin.getAdminName();
 		if(!pwd.equals(vtypwd)) {
-			  throw new Exception("Inconsistent entry password!");
+			System.err.println("Inconsistent entry password!");
+			  //throw new Exception("Inconsistent entry password!");
+			  return false;
 		}
 		AdminRegister_Dao_impl adi=new AdminRegister_Dao_impl();
 		String adminame=adi.adminfind(AdminName).getAdminName();
 		if(adminame!=null) {
-			throw new Exception("Admin ID already exists");
+			System.err.println("Admin ID already exists");
+			//throw new Exception("Admin ID already exists");
+			return false;
 		}
 		adi.register(Admin);
+		return true;
 	}
 
 	@Override
-	public boolean LoginAdmin(Admin_RegisterLogin_Vo Admin) throws Exception {
+	public boolean LoginAdmin(Admin_RegisterLogin_Vo Admin){
 		// TODO Auto-generated method stub
 		String adminname=Admin.getAdminName();
 		String pwd=Admin.getAdminPwd();
 		AdminRegister_Dao_impl adi=new AdminRegister_Dao_impl();
-		
-		if(adi.adminfind(adminname)!=null) {
-			if(adi.adminfind(adminname, pwd)==true) {	
+		Admin_RegisterLogin_Vo arv=adi.adminfind(adminname);
+		String adaccount=arv.getAdminName();
+		if(adaccount!=null) {
+			boolean bl=adi.adminfind(adminname, pwd);
+			if(bl) {	
 				
 				return true;
 			}else {
-				throw new Exception("Admin password is not correct!");		
-				
+				//throw new Exception("");		
+				System.err.println("Admin password is not correct!");
+				return false;
 			}
 		}else {
 			
-			throw new Exception("Admin ID is not exists");
+			//throw new Exception("Admin ID is not exists");
+			System.err.println("Admin ID is not exists");
+			return false;
 		}
 		
 		

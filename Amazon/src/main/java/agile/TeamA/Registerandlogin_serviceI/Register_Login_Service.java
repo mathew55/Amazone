@@ -6,9 +6,9 @@ public interface Register_Login_Service {
 	
 	
 	// Use for supply register service
-	void RegisterAdmin(Admin_RegisterLogin_Vo Admin) throws Exception;
+	boolean RegisterAdmin(Admin_RegisterLogin_Vo Admin);
 	
 	
 	// Use for supply Login service
-	boolean LoginAdmin(Admin_RegisterLogin_Vo Admin) throws Exception;
+	boolean LoginAdmin(Admin_RegisterLogin_Vo Admin);
 }

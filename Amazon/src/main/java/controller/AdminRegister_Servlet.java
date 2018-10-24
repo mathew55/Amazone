@@ -55,14 +55,19 @@ public class AdminRegister_Servlet extends HttpServlet {
 		admininformation.setLastName(LastName);
 		try {
 			Register_Login_Service_impl Register_Service=new Register_Login_Service_impl();
-			Register_Service.RegisterAdmin(admininformation);
+			boolean bl =Register_Service.RegisterAdmin(admininformation);
+			if(bl) {
+				String message = String.format(
+	                     "Register successful!!Automatically jump to the login page for you after 3 seconds!!"
+	                     + "<meta http-equiv='refresh' content='3;url=%s'/>", 
+	                    request.getContextPath()+"/adminlogin.jsp");
+	            request.setAttribute("message",message);
+	            request.getRequestDispatcher("/message.jsp").forward(request,response);
+			}else {
+				request.setAttribute("error", "The account or password you entered is incorrect. Please re-enter!");
+				request.getRequestDispatcher("admin_register.jsp").forward(request, response);
+			}
 			
-			String message = String.format(
-					                     "Register successful!!Automatically jump to the login page for you after 3 seconds!!"
-					                     + "<meta http-equiv='refresh' content='3;url=%s'/>", 
-					                    request.getContextPath()+"/adminlogin.jsp");
-					            request.setAttribute("message",message);
-					            request.getRequestDispatcher("/message.jsp").forward(request,response);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
