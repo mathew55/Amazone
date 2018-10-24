@@ -158,7 +158,7 @@ function showDivs(n) {
 <div class="div2" style="background-color:aqua; color:white;padding:120px;" >
 <h1><b>New to Amazon? <br>Sign up for best experiences</b></h1>
 <input type="submit" value="SignUp" name="button1">
-<input type="button" value="Signiiiiii" name="button2" onclick="window.location.href='adminlogin.jsp'">
+
 </div>
 
 </article>

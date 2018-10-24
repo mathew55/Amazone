@@ -74,7 +74,7 @@ footer {
 <form  name="form" action="RegistrationServlet" method="post">
 <section>
 <nav>
-<img src="file:///C:/Users/Shoma/eclipse-workspace/Amazon/WebContent/images/ama.jpg" style="width:100%">
+<img src="images/ama.jpg" style="width:100%">
 <table style="background-color: blue; width:100%;" >
 <tr>
 
