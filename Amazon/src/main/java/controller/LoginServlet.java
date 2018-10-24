@@ -48,6 +48,7 @@ public class LoginServlet extends HttpServlet {
 		UserRegDAO loginDao = new UserRegDAO (); //creating object for LoginDao. This class contains main logic of the application.
 		 
 		String userValidate = loginDao.validateUserdetailsforLogin(loginBean); //Calling authenticateUser function
+		System.out.println(userValidate);
 		 
 		if(userValidate.equals("SUCCESS")) //If function returns success string then user will be rooted to Home page
 		 {

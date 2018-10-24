@@ -32,6 +32,7 @@ public class UserRegDAO {
 				{
 					userNameDB = resultSet.getString("userId"); //fetch the values present in database
 					passwordDB = resultSet.getString("password");
+					System.out.println("the values from database are" + userNameDB + "and password is " +passwordDB);
 
 					if(userName.equals(userNameDB) && password.equals(passwordDB))
 						{
@@ -46,7 +47,7 @@ public class UserRegDAO {
 							return "Invalid user credentials"; // Just returning appropriate message otherwise
 }
 	
-   public String addUserdetailsinDB(UserRegistrationBean loginBean)
+public String addUserdetailsinDB(UserRegistrationBean loginBean)
    
    {
 	   String pwd1=loginBean.getPassword1();
@@ -55,21 +56,29 @@ public class UserRegDAO {
 	   System.out.println(pwd2);
 	   if(pwd1.equals(pwd2))
 	   {
-	   String query = "insert into  user_table values (?,?,?,?,?)";
+	 //  String query = "insert into  user_table values (?,?,?,?,?)";
+	 // String query="INSERT INTO user_table VALUES(?,?,?,?,?)";
+		   
    	try {
    		
-   		    counter=counter+1;
+   		   
    		    
    		 con = DBConnection.createConnection(); //establishing connection
+   		String query = "insert into user_table (fullName, email,userId,password) values (?,?,?,?)";
+		PreparedStatement   pst = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			
 			
-   		    System.out.println("counter value is "+counter);
-			PreparedStatement pst = con.prepareStatement(query);
-			pst.setInt(1, counter);
-			pst.setString(2,loginBean.getUserfullName());
-			pst.setString(3,loginBean.getEmail());
-			pst.setString(4,loginBean.getUserName());
-			pst.setString(5,loginBean.getPassword2());
+   		   
+			
+			pst.setString(1,loginBean.getUserfullName());
+			pst.setString(2,loginBean.getEmail());
+			pst.setString(3,loginBean.getUserName());
+			pst.setString(4,loginBean.getPassword2());
+			
+			resultSet = pst.getGeneratedKeys();
+	            if(resultSet != null && resultSet.next()){
+	                System.out.println("Generated userserial Id: "+resultSet.getInt(1));
+	            }
 		
 			
 			pst.executeUpdate();
