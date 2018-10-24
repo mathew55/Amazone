@@ -53,7 +53,7 @@ public class AddProductServlet extends HttpServlet {
 		String productQuant = request.getParameter("productQuantity");
 		int productQuantity = Integer.parseInt(productQuant);
 		String productManufacturer = request.getParameter("productManufacturer");
-		Part filePart = request.getPart("inputFile");
+		Part filePart = request.getPart("inputname");
 		
 		if (filePart != null) {
             // prints out some information for debugging

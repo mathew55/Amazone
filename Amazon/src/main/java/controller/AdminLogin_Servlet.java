@@ -43,7 +43,7 @@ public class AdminLogin_Servlet extends HttpServlet {
 				String message = String.format(
 						"Login successful!!Automatically jump to the dashboard page for you after 3 seconds!!"
 								+ "<meta http-equiv='refresh' content='3;url=%s'/>",
-						request.getContextPath() + "/homepage.html");
+						request.getContextPath() + "/adminmanagement.html");
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("/message.jsp").forward(request, response);
 			} else {
