@@ -27,7 +27,26 @@ INSERT INTO customers VALUES ( null, 'Shane', 'Long', '4 Cresant Road', 'Tippera
 select * from customers
 ORDER BY customer_firstName ASC;
 #--------------------------------------------------------------------------------------------------------------
+#---New Addition - Bhagya's Login (24/10/2018)
 
+DROP TABLE IF EXISTS user_table;
+
+
+CREATE TABLE user_table 
+(
+	id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	
+	fullName VARCHAR(155) NOT NULL,
+
+	email VARCHAR(100) NOT NULL,
+
+    	userId VARCHAR(100) NOT NULL,
+
+   	password VARCHAR(50) NOT NULL ); 
+INSERT INTO user_table VALUES ( null, 'Joe Mullins','joeyM@google.ie','joemull','jmullins');
+
+INSERT INTO user_table VALUES ( null, 'Michael Higgins', 'tmicky@yahoo.com','mchgg','micky');
+#--------------------------------------------------------------------------------------------------------------
 DROP TABLE IF EXISTS administrators;
 
 CREATE TABLE ADMINISTRATORS (
