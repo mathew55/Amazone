@@ -9,7 +9,7 @@ public class DBConnection {
 	 Connection con = null;
 	 String url = "jdbc:mysql://localhost:3306/amazone"; //MySQL URL and followed by the database name
 	 String username = "root"; //MySQL username
-	 String password = "admin"; //MySQL password
+	 String password = ""; //MySQL password
 	 
 	 try 
 	 {

@@ -24,7 +24,7 @@ public Connection getConnection() {
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/amazone", "root", "admin");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/amazone", "root", "");
 			if(connection != null) {
 				
 				System.out.println("connected to amazoneDb ok!");

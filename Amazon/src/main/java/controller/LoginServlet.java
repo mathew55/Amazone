@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 		if(userValidate.equals("SUCCESS")) //If function returns success string then user will be rooted to Home page
 		 {
 		 request.setAttribute("userName", userName); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
-		 request.getRequestDispatcher("/Home.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
+		 request.getRequestDispatcher("/tobzindex.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
 		 }
 		else if (button1.equalsIgnoreCase("SignUp"))
 		 {
