@@ -14,86 +14,96 @@ public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 	 * Implementation class for AdminRegister_Interface
 	 * 
 	 */
+	
 
 	@Override
 	public Boolean adminfind(String adminname, String adminpwd) {
-		Dbmanage dbmanage = new Dbmanage();
-		Connection conn = null;
-		//Statement sta = null;
+		 Dbmanage dbmanage = new Dbmanage();
+		 Connection conn = null;
+		System.out.println("finish link to database and start seraching");
 		try {
-			conn=dbmanage.initDB();
-			//String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
-			PreparedStatement psmt = conn.prepareStatement("SELECT * FROM ADMINISTRATORS WHERE admin_username=(?) and admin_password=(?)");
+			conn = dbmanage.initDB();
+			// String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
+			PreparedStatement psmt = conn
+					.prepareStatement("SELECT * FROM ADMINISTRATORS WHERE admin_username=(?) and admin_pasword=(?)");
 			psmt.setString(1, adminname);
 			psmt.setString(2, adminpwd);
-			ResultSet rs=psmt.executeQuery();
-			while(rs.next()) {
-				
+			ResultSet rs = psmt.executeQuery();
+			while (rs.next()) {
+
 				return true;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-		}	
-		return false;		
+		} finally {
+
+			dbmanage.fecharBDcon(conn);
+		}
+		return false;
 	}
+
 	// register a admin account
 	@Override
-	public void register(Admin_RegisterLogin_Vo admin) {
+	public boolean register(Admin_RegisterLogin_Vo admin) {
 		// TODO Auto-generated method stub
-		Dbmanage dbmanage = new Dbmanage();
-		Connection conn = null;
-		//Statement sta = null;
+		 Dbmanage dbmanage = new Dbmanage();
+		 Connection conn = null;
+		 Statement sta = null;
 		try {
 			conn = dbmanage.initDB();
-			PreparedStatement psmt = conn.prepareStatement("INSERT INTO ADMINISTRATORS (admin_firstName,admin_lastName,admin_username,admin_pasword) VALUES(????)");
+			PreparedStatement psmt = conn.prepareStatement(
+					"INSERT INTO ADMINISTRATORS (admin_ID,admin_firstName,admin_lastName,admin_username,admin_password) VALUES(null,?,?,?,?)");
 			psmt.setString(1, admin.getFirstName());
 			psmt.setString(2, admin.getLastName());
 			psmt.setString(3, admin.getAdminName());
 			psmt.setString(4, admin.getAdminPwd());
 			psmt.executeUpdate();
-			/*String sql = "INSERT INTO ADMINISTRATORS VALUES(" + admin.getFirstName() + ',' + admin.getAdminName() + ','
-					+ admin.getAdminPwd() + ',' + admin.getLastName() + ")";
-			sta.executeQuery(sql);*/
-			
+			/*
+			 * String sql = "INSERT INTO ADMINISTRATORS VALUES(" + admin.getFirstName() +
+			 * ',' + admin.getAdminName() + ',' + admin.getAdminPwd() + ',' +
+			 * admin.getLastName() + ")"; sta.executeQuery(sql);
+			 */
+			return true;
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		} /*finally {
-			dbmanage.closeDB(sta, conn);
-		}*/
+			return false;
+		} finally {
+
+			dbmanage.fecharBDcon(conn);
+		}
 
 	}
 
 	@Override
 	public Admin_RegisterLogin_Vo adminfind(String AdminName) {
-		// TODO Auto-generated method stub		
-		Admin_RegisterLogin_Vo admin=new Admin_RegisterLogin_Vo();
-		Dbmanage dbmanage = new Dbmanage();
-		Connection conn = null;
-		//Statement sta = null;
-		Admin_RegisterLogin_Vo admin1 =new Admin_RegisterLogin_Vo();
-		String adminName =null;
+		// TODO Auto-generated method stub
+		Admin_RegisterLogin_Vo admin = new Admin_RegisterLogin_Vo();
+		 Dbmanage dbmanage = new Dbmanage();
+		 Connection conn = null;
+		// Statement sta = null;
+		String adminName = null;
+		conn = dbmanage.initDB();
 		try {
-			conn=dbmanage.initDB();
-			//String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
+			// String sql = "SELECT * FROM DATABASE WHERE admin_username="+AdminName+";";
 			PreparedStatement psmt = conn.prepareStatement("SELECT * FROM ADMINISTRATORS WHERE admin_username=(?)");
 			psmt.setString(1, AdminName);
-			ResultSet rs=psmt.executeQuery();
-			while(rs.next()) {
+			ResultSet rs = psmt.executeQuery();
+			while (rs.next()) {
 				adminName = rs.getString("admin_username");
-				admin1.setAdminName(adminName);
-				System.out.println("name"+adminName+"is in the data base");
-				return admin1;
-				
+				admin.setAdminName(adminName);
+				System.out.println("name" + adminName + "is in the data base");
+				return admin;
 			}
-				System.out.println("name"+adminName+"is not in the data base");
-				
-				return null;
-			
 		} catch (Exception e) {
 			// TODO: handle exception
+			// System.out.println("name:"+adminName+"is not in the data base");
+		} finally {
+			dbmanage.fecharBDcon(conn);
 		}
-		return admin1;
-	
+		System.out.println("name:" + adminName + "is not in the data base");
+		return admin;
+
 	}
 
 }

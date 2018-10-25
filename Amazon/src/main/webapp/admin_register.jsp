@@ -102,9 +102,10 @@ function _refeshimg() {
 		/*verfity admin password tow times is same  */
 		 if (advtypwd == adpwd && advtypwd!=""&& adpwd!="") {
 			c4.innerHTML = "two time password is same";
-			tep = 1;
+			
 		} else {
 			c4.innerHTML = "two time password is not same!";
+			tep = 1;
 		} 
 		//var vl = "^[A]{1}[T]{1}[0-9]{8}$";
 		var vl = "^[A]{1}[0-9]{8}$";
@@ -117,7 +118,7 @@ function _refeshimg() {
 			flg = 1;
 		}
 		if (tep == 0 && flg == 0) {
-			alert("admin register scuessful");
+			/* alert("admin register scuessful"); */
 			return true;
 		} else {
 			alert("your information have wrong!");
@@ -183,7 +184,7 @@ function _refeshimg() {
 						id="c03"></span></td>
 				</tr>
 				<tr>
-					<td align="center">VerityPassword:&nbsp;&nbsp;</td>
+					<td align="center">re-enter Password:&nbsp;&nbsp;</td>
 					<td colspan="2"><input name="vtyAdminPwd" type="password">
 						<span id="c04"></span></td>
 				</tr>

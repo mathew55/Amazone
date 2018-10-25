@@ -18,20 +18,22 @@ public class Register_Login_Service_impl implements Register_Login_Service{
 			  return false;
 		}
 		AdminRegister_Dao_impl adi=new AdminRegister_Dao_impl();
-		String adminame=adi.adminfind(AdminName).getAdminName();
-		if(adminame!=null) {
+		Admin_RegisterLogin_Vo arv= adi.adminfind(AdminName);
+		String adminame=arv.getAdminName();
+		if(adminame == null) {
+			boolean bl=adi.register(Admin);
+			return bl;
+		}else {			
 			System.err.println("Admin ID already exists");
 			//throw new Exception("Admin ID already exists");
 			return false;
 		}
-		adi.register(Admin);
-		return true;
 	}
 
 	@Override
 	public boolean LoginAdmin(Admin_RegisterLogin_Vo Admin){
 		// TODO Auto-generated method stub
-		String adminname=Admin.getAdminName();
+		String adminname=Admin.getAdminName();		
 		String pwd=Admin.getAdminPwd();
 		AdminRegister_Dao_impl adi=new AdminRegister_Dao_impl();
 		Admin_RegisterLogin_Vo arv=adi.adminfind(adminname);
@@ -46,8 +48,7 @@ public class Register_Login_Service_impl implements Register_Login_Service{
 				System.err.println("Admin password is not correct!");
 				return false;
 			}
-		}else {
-			
+		}else {		
 			//throw new Exception("Admin ID is not exists");
 			System.err.println("Admin ID is not exists");
 			return false;

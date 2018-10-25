@@ -37,10 +37,8 @@ public class AdminRegister_Servlet extends HttpServlet {
 		HttpSession se = request.getSession();
 		se.setMaxInactiveInterval(604800);
 	    request.setCharacterEncoding("utf-8");
-	    response.setContentType("text/html;charset=utf-8");
-		
-		//String type=request.getParameter("type");
-		
+	    response.setContentType("text/html;charset=utf-8");		
+		//String type=request.getParameter("type");		
 			String FirstName=request.getParameter("FirstName");
 			String AdminPwd=request.getParameter("AdminPwd");
 			String vtyAdminPwd=request.getParameter("vtyAdminPwd");
@@ -64,14 +62,15 @@ public class AdminRegister_Servlet extends HttpServlet {
 	            request.setAttribute("message",message);
 	            request.getRequestDispatcher("/message.jsp").forward(request,response);
 			}else {
-				request.setAttribute("error", "The account or password you entered is incorrect. Please re-enter!");
+				request.setAttribute("error", "Your register information have wrong!please check it!");
 				request.getRequestDispatcher("admin_register.jsp").forward(request, response);
 			}
-			
-			
+						
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("error", "Your register information have wrong!please check it!");
+			request.getRequestDispatcher("admin_register.jsp").forward(request, response);
 		}
 	}
 

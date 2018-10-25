@@ -14,7 +14,7 @@ public interface AdminRegister_Login_Interface {
 	 * 
 	 * */	
 	
-	void register(Admin_RegisterLogin_Vo admin);
+	boolean register(Admin_RegisterLogin_Vo admin);
 	/*
 	 * Find admin based on adminID
 	 * 

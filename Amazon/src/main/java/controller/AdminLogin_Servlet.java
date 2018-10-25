@@ -40,6 +40,7 @@ public class AdminLogin_Servlet extends HttpServlet {
 		try {
 			boolean bl = Register_Service.LoginAdmin(admininformation);
 			if (bl) {
+				//if login successful use this to change page
 				String message = String.format(
 						"Login successful!!Automatically jump to the dashboard page for you after 3 seconds!!"
 								+ "<meta http-equiv='refresh' content='3;url=%s'/>",
@@ -47,11 +48,15 @@ public class AdminLogin_Servlet extends HttpServlet {
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("/message.jsp").forward(request, response);
 			} else {
+				//use this to redirect page
 				request.setAttribute("error", "The account or password you entered is incorrect. Please re-enter!");
 				request.getRequestDispatcher("adminlogin.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
+			//use this to redirect page
 			e.printStackTrace();
+			request.setAttribute("error", "The account or password you entered is incorrect. Please re-enter!");
+			request.getRequestDispatcher("adminlogin.jsp").forward(request, response);
 		}
 
 	}
