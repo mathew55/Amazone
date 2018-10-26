@@ -20,7 +20,7 @@ public enum SearchDAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/amazone", "root", "");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/amazone", "root", "admin");
 			
 			if(connection != null) {
 				System.out.println("Connected to Amazone OK! ");
@@ -32,50 +32,64 @@ public enum SearchDAO {
 	}
 
 	
-	public ArrayList getSearchedParameter(String keyword)
+	public ArrayList<SearchProduct> getSearchedParameter(String keyword)
 	{
 		
-		Connection connection = getConnection();
+		ArrayList<SearchProduct> productsSearch = new ArrayList<>();
 		
-		ArrayList search = null;
-		ArrayList pid_list = new ArrayList();
+		
+		//ArrayList<SearchProduct> search = null;
+		//ArrayList pid_list = new ArrayList();
 		
 		try {
-			
-			PreparedStatement psmt = connection.prepareStatement("SELECT * FROM products WHERE product_Name= ?");
-			
-			psmt.setString(1, keyword);
-			ResultSet res = psmt.executeQuery();
-			
-			if(keyword!=null && !keyword.equals("")){
+			Connection connection = getConnection();
+			//if(keyword!=null && !keyword.equals("")){
 				System.out.println("Keyword " + keyword +" posted to database.");
 			
-				SearchProduct searchpd = new SearchProduct(keyword);
+			//PreparedStatement psmt = connection.prepareStatement("SELECT * FROM products WHERE product_Name= ?");
+			PreparedStatement psmt = connection.prepareStatement("SELECT * FROM products WHERE  product_Name LIKE '%"+keyword+"%'");
+			System.out.println("Keyword " + psmt +" posted to database.");
+			ResultSet res = psmt.executeQuery();
+			
+			SearchProduct search;
+				//search = new ArrayList<SearchProduct>(res.getString("keyword"));
+			
+				//SearchProduct searchpd = new SearchProduct(keyword);
 				
 				// psmt = keyword;
-				while (res.next()) {
+				//while (res.next()) {
 					//searchpd.setProductName(res.getString("product_Name"));
-					search = new ArrayList();
+					//search = new ArrayList();
 
-	                search.add(res.getString("product_Name"));
+	                //search.add(res.getString("product_Name"));
 	                //al.add(rs.getString(2));
 	               // al.add(rs.getString(3));
 	               // al.add(rs.getString(4));
-	                System.out.println("search :: " + search);
-	                pid_list.add(search);
+	                //System.out.println("search :: " + search);
+	                //pid_list.add(search);
+				
+			 
+				 while(res.next()) {
+					 search = new SearchProduct(
+		                       res.getString("product_Name")
+		                      
+		                        
+		                );
+					 
+		              productsSearch.add(search);
+				
 	            }
 				
-			}
+			//}
 			
-			
-			
-			
-			System.out.println("Searched " + search +" from the database.");
+	
+			System.out.println("Searched " + productsSearch +" from the database.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return search;	
+		return productsSearch;	
 	}
+	
 }
 
 
