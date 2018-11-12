@@ -77,10 +77,10 @@
     <div class="col-sm-4">  
     
       <div class="panel panel-primary">
-        <div class="panel-heading">product_Name</div>
+        <div class="panel-heading" name="product_Name">Name = <%=request.getAttribute("product_Name")%></div>
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-       
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div><%-- 
+       <input type="text" name="product_Name" value='<%=request.getAttribute("product_Name")%>'/> --%>
       </div>
        </div> 
   </div>

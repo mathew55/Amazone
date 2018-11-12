@@ -40,14 +40,20 @@ public class Search extends HttpServlet {
 		String keyword = request.getParameter("searchProduct");
 		
 			
-		ArrayList<SearchProduct> results = SearchDAO.instance.getSearchedParameter(keyword);
-        request.setAttribute("results", results);
-			System.out.println("This is from the servlet" + results);
+		//ArrayList<SearchProduct> results = SearchDAO.instance.getSearchedParameter(keyword);
+		
+		 SearchProduct sp =new SearchProduct();
+		 sp= SearchDAO.instance.getSearchedParameter(keyword);
+		String a = sp.GetProductName();
+		System.out.println(a);
+		
+		request.setAttribute("product_Name", a);
+			System.out.println("This is from the servlet" + a);
 		request.getRequestDispatcher("Search.jsp").forward(request, response);
 			
 		}
 		
-
+	    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
