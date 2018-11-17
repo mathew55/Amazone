@@ -17,7 +17,7 @@ import model.AddProduct;
 
 public enum AddProductdao {
 	instance;
-	// Checks if the database connection is OK
+	// Setting up the Database and Checking if the database connection is OK
 	
 public Connection getConnection() {
 		
@@ -25,12 +25,15 @@ public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/amazone", "root", "");
+			
+			//If the connection is not null it gets the connection and link to mysql database
 			if(connection != null) {
 				
 				System.out.println("connected to amazoneDb ok!");
 			}
 			
 		}
+		// Else if the connection is null then it throws a exception
 		catch(Exception e){
 			
 			e.printStackTrace();
@@ -39,25 +42,24 @@ public Connection getConnection() {
 		
 	}
 
-
+// This is a method called to save a product to the database
 
 public void saveProduct (AddProduct product) {
 	
+	// getting the connection to the database
 	Connection connection = getConnection();
 	
 	
 	try {
 		
-	//	PreparedStatement psmt1 = connection.prepareStatement("SELECT product_Name FROM PRODUCTS WHERE product_Name = ?");
 		PreparedStatement psmt2 = connection.prepareStatement("INSERT INTO PRODUCTS (product_Name, product_Manufacturer, product_Price, product_Description, product_Quantity_Available, product_Image) VALUES(?,?,?,?,?,?)");
 		
-		//psmt2.setInt(1, product.getProductId());
 		psmt2.setString(1, product.getProductName());
 		psmt2.setString(2, product.getProductManufacturer());
 		psmt2.setDouble(3, product.getProductPrice());
 		psmt2.setString(4, product.getProductDescription());
 		psmt2.setInt(5, product.getProductQuantity());
-		//psmt2.setBytes(6, product.getInputFile());
+		
 		if (product.getInputFile() != null) {
             // fetches input stream of the upload file for the blob column
 			psmt2.setString(6, product.getInputFile().getContentType());
@@ -86,9 +88,7 @@ public AddProduct CheckProductName(String productname) {
 		
 		if(res.next()) {
 			product = new AddProduct(res.getString("productName, productDescription, productPrice, productQuantity, productManufacturer"));
-			//String name = res.getString("productName");
 			
-			//product = new Product()
 			System.out.println("name" + productname + "is in the data base.");
 		}
 		

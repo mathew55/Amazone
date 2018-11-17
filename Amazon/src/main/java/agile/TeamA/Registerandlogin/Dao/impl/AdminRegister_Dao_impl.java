@@ -75,6 +75,14 @@ public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 
 	}
 
+	
+	
+	//Admin Login Dao
+	//
+	//
+	//
+	
+	
 	@Override
 	public Admin_RegisterLogin_Vo adminfind(String AdminName) {
 		// TODO Auto-generated method stub

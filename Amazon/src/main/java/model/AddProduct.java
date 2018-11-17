@@ -31,35 +31,6 @@ public AddProduct(String productName) {
  this.productName = productName;
 }
 
-//public Product(String productDescription) {
-	 //this.productDescription = productDescription;
-	//}
-
-//public Product(String productPrice) {
-	// this.productPrice = productPrice;
-	//}
-
-
-//public Product(String productQuantity) {
-	// this.productQuantity = productQuantity;
-	//}
-
-//public Product(String productManufacturer) {
-	// this.productManufacturer = productManufacturer;
-	//}
-
-
-
-
-//public Product(String productName, String productDescription, Float productPrice, int productQuantity, String productManufacturer, String inputFile) {
-   // this.productName = productName;
-    //this.productDescription = productDescription;
-    //this.productPrice = productPrice;
-    //this.productQuantity = productQuantity;
-   // this.productManufacturer = productManufacturer;
-    //this.inputFile = inputFile;     
-    //this.productID = counter.incrementAndGet();
-//}
 
 
 public int getProductId() {
