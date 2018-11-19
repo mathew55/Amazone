@@ -31,10 +31,10 @@ public class Dbmanage {
 			  Class.forName("com.mysql.jdbc.Driver"); 
 			  Properties properties= new Properties(); 
 			  properties.setProperty("user", "root");
-			  properties.setProperty("password", ""); 
+			  properties.setProperty("password", "admin"); 
 			  properties.setProperty("useLL","false"); 
 			  properties.setProperty("autoReconnect", "true"); 
-			  String url ="jdbc:mysql://localhost:3306/amazone"; 
+			  String url ="jdbc:mysql://localhost:3307/amazone"; 
 			  conn = DriverManager.getConnection(url,properties);
 			 return conn;
 			 

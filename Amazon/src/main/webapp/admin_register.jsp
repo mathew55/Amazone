@@ -188,7 +188,10 @@ function _refeshimg() {
 					<td colspan="2"><input name="vtyAdminPwd" type="password">
 						<span id="c04"></span></td>
 				</tr>
-
+				<tr>
+					<td align="center"></td>
+				</tr>
+				
 
 				<!-- <tr>
 					<td align="center">VerificationCode:&nbsp;&nbsp;</td>
