@@ -1,7 +1,5 @@
 package model;
 
-import javax.servlet.http.Part;
-
 public class DashboardProduct {
 	private String productName;
 	private double productPrice;

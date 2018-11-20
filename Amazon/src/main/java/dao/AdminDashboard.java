@@ -103,7 +103,7 @@ public Connection getConnection() {
      } catch (Exception e) {
          e.printStackTrace(System.err);
      } 
-		//System.out.println(ar);
+		System.out.println(ar);
      return ar;
 		}
 }
