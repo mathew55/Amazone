@@ -1,24 +1,24 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.util.Iterator" %>
+    <%@page import="java.util.ArrayList"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
- <head>
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Amazone Admin - Dashboard</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <title>Amazone Admin - Dashboard</title>
     
  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
  <link rel="stylesheet" href="bootstrap/fontawesome/css/all.min.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
    
    <!--Custom styles-->
 	<link href= "bootstrap/admin-dashboard.css" rel="stylesheet" type="text/css">
-  </head>
-
-  <body id="page-top">
+</head>
+<body id="page-top">
+      <%--Importing all the dependent classes--%>
+<%@page import="dao.AdminDashboard"%>
+<%@page import="model.DashboardProduct"%>
+<%@page import="java.util.Iterator"%> 
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -43,36 +43,36 @@
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">9+</span>
+            <!--<span class="badge badge-danger">9+</span>-->
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+         <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          </div> -->
         </li>
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-envelope fa-fw"></i>
-            <span class="badge badge-danger">7</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+         <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          </div>-->
         </li>
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Activity Log</a>
+           <!-- <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Activity Log</a>-->
+            
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="adminlogin" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
       </ul>
@@ -90,11 +90,20 @@
           </a>
         </li>
         
-        
         <li class="nav-item">
           <a class="nav-link" href="product.jsp">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-plus"></i>
             <span>Add Product</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="prod_update_index.jsp">
+            <i class="fas fa-fw fa-tag"></i>
+            <span>Update Product</span></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="CustomerHist.jsp">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Customer History</span></a>
         </li>
       </ul>
 
@@ -116,46 +125,19 @@
               <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
-                    <i class="fas fa-fw fa-comments"></i>
+                    <i class="fas fa-fw fa-calculator"></i>
                   </div>
                   <div class="mr-5">Total Available Products</div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-list"></i>
-                  </div>
-                  <div class="mr-5">Product with Quantity less than 3</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-shopping-cart"></i>
-                  </div>
-                  <div class="mr-5">Newly Added Product</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="" style="font-size: 25px; text-align: center">
+                 <%=request.getAttribute("ProductTotal")%>
+                   <%if(request.getAttribute("ProductTotal")== null){
+    				out.print("0");   
+					}
+						else {%>
+    			<%request.getAttribute("ProductTotal"); %>
+				<% } %>
                   </span>
                 </a>
               </div>
@@ -164,49 +146,73 @@
               <div class="card text-white bg-danger o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
-                    <i class="fas fa-fw fa-life-ring"></i>
+                    <i class="fas fa-fw fa-list"></i>
                   </div>
-                  <div class="mr-5">No clue yet</div>
+                  <div class="mr-5">Product with Quantity less than 3 </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="" style="font-size: 25px; text-align: center">
+                  
+                  <%=request.getAttribute("ProductTotalLessThan3") %>
+                  
+                  <%if(request.getAttribute("ProductTotalLessThan3")== null){
+    				out.print("0");   
+					}
+						else {%>
+    			<%request.getAttribute("ProductTotalLessThan3"); %>
+				<% } %>
+                 
+                  
                   </span>
                 </a>
               </div>
             </div>
+        
           </div>
 
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              List of Products</div>
+              List of 7 recent Products</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Product Name</th>
-                      <th>Product Manufacturer</th>
-                      <th>Product Quantity</th>
                       <th>Product Price</th>
+                      <th>Product Quantity</th>
+                      <th>Product Manufacturer</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Bag</td>
-                      <td>Next</td>
-                      <td>5</td>
-                      <td>300</td>
-                    </tr>
+                
+                  
+                  <%  
+// retrieve your list from the request, with casting 
+ArrayList<DashboardProduct> list = (ArrayList<DashboardProduct>) request.getAttribute("ProductList");
+
+// print the information about every category of the list
+for(DashboardProduct products : list) {
+    %>
+    <tr>
+    <td><%= products.getProductName()%></td>
+    <td><%= products.getProductPrice()%></td>
+    <td><%= products.getProductQuantity()%></td>
+    <td><%= products.getProductManufacturer()%></td>
+  </tr>
+  <%
+}
+%>
                    
+                 	
+                 
+                  
                   </tbody>
                 </table>
               </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
         </div>
@@ -257,20 +263,4 @@
 
   </body>
 
-</html>
-
-<html>
-<head>
-<title>Management page</title>
-<meta http-equiv=Content-Type content=text/html;charset=utf-8>
-</head>
-<frameset rows="500,*"  frameborder="NO" border="0" framespacing="0">
-	<!-- <frame src="admin_top.jsp" noresize="noresize" frameborder="NO" name="topFrame" scrolling="no" marginwidth="0" marginheight="0" target="main" /> -->
-  <frameset cols="200,*"  rows="560,*" id="frame">
-	<frame src="left.html" name="leftFrame" noresize="noresize" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" target="main" />
-	<frame src="right.html" name="main" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" target="_self" />
-  </frameset><!-- 
-<noframes>
-  <body></body>
-    </noframes> -->
 </html>
