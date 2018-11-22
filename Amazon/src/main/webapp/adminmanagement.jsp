@@ -22,7 +22,7 @@
 <link href="bootstrap/admin-dashboard.css" rel="stylesheet"
 	type="text/css">
 </head>
-<body id="page-top">
+<body id="page-top" >
 	<%--Importing all the dependent classes--%>
 
 
@@ -80,7 +80,7 @@
             <a class="dropdown-item" href="#">Activity Log</a>-->
 
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="adminlogin.jsp" data-toggle="modal">Logout</a>
+				<a class="dropdown-item" href="adminlogin.jsp">Logout</a>
 			</div></li>
 	</ul>
 
@@ -91,7 +91,7 @@
 		<!-- Sidebar -->
 		<ul class="sidebar navbar-nav">
 			<li class="nav-item active"><a class="nav-link"
-				href="adminmanagement.jsp"> <i
+				href="AdminDashboardServlet"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 
@@ -126,7 +126,7 @@
 								</div>
 								<div class="mr-5">Total Available Products</div>
 							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
+							<a class="card-footer text-white clearfix small z-1" href="#" style="text-decoration: none">
 								<span class="" style="font-size: 25px; text-align: center">
 									<%=request.getAttribute("ProductTotal")%> <%if(request.getAttribute("ProductTotal")== null){
     				out.print("0");   
@@ -144,7 +144,7 @@
 								</div>
 								<div class="mr-5">Product with Quantity less than 3</div>
 							</div>
-							<a class="card-footer text-white clearfix small z-1" href="#">
+							<a class="card-footer text-white clearfix small z-1" href="#" style="text-decoration: none">
 								<span class="" style="font-size: 25px; text-align: center">
 
 									<%=request.getAttribute("ProductTotalLessThan3") %> <%if(request.getAttribute("ProductTotalLessThan3")== null){

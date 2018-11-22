@@ -24,7 +24,7 @@ public Connection getConnection() {
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/amazone", "root", "");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/amazone", "root", "admin");
 			
 			//If the connection is not null it gets the connection and link to mysql database
 			if(connection != null) {
@@ -64,8 +64,7 @@ public void saveProduct (AddProduct product) {
             // fetches input stream of the upload file for the blob column
 			psmt2.setString(6, product.getInputFile().getContentType());
         }
-		
-		
+			
 		psmt2.executeUpdate();
 		
 		System.out.println("Added" + product.getProductName() + "to the database.");

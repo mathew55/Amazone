@@ -96,8 +96,15 @@
 	<i class="fa fa-times"></i>
 	
 	</span>
-
 </button>
+
+<a href="AdminDashboardServlet" class="btn waves-light">
+	<span class="btn-label">
+	Back
+	<i class="fa fa-backward"></i>
+	
+	</span>
+</a>
 </div>
 </div>
 

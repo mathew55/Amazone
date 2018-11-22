@@ -47,7 +47,6 @@ public class AdminDashboardServlet extends HttpServlet {
 		// Get 7 recent Products
 		ArrayList<DashboardProduct> getListProduct = adminDash.getListofFewProduct();
 		request.setAttribute("ProductList", getListProduct );
-		System.out.println(getListProduct);
 		request.getRequestDispatcher("adminmanagement.jsp").forward(request, response);
 		
 		
