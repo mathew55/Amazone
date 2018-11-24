@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class Dbmanage {
-
+public class DB {
 	public Connection initDB() {
 		Connection conn = null;
 		try {

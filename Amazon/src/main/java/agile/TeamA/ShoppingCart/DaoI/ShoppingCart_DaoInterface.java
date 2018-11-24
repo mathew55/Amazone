@@ -14,7 +14,7 @@ public interface ShoppingCart_DaoInterface {
 	//get customer cart information
 	ArrayList<ShoppingCart_Vo> GetCart(int Customer_id);
 	//use to add CustomerCart information to CustomerCart table
-	boolean addCustomerCart(ArrayList<ShoppingCart_Vo> CustomerCart);
+	boolean addCustomerCart(ArrayList<ShoppingCart_Vo> CustomerCart,int CustomerID);
 	//use to update CustomerCart information
 	boolean updateCustomer_Cart(String ids,int Customer_id,String type);
 	//use to check product quantity is available

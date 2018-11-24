@@ -67,7 +67,7 @@ function finishdel(){
   <h1>MyShopping_Cart</h1>
   <a href="/Amazon/GotoHallUI"> continue shopping </a>
    <table border="1" style="border-collapse: collapse; width: 600px; ">
-    <tr><th>select</th><th>itemID</th><th>itemName</th><th>unit price</th><th>total price</th><th>Quantity</th></tr>
+    <tr><th>select</th><th>itemID</th><th>itemName</th><th>unit price</th><th>Quantity</th></tr>
     <%
         ArrayList<ShoppingCart_Vo> ShoppingCart = (ArrayList<ShoppingCart_Vo>) request.getAttribute("Cart");
         Object cid = request.getAttribute("Customer_id");
@@ -82,7 +82,7 @@ function finishdel(){
                 <td> <%=sc.getItemsPrice() %> </td>
                 <td><%=sc.getitems_Quantity() %></td>
                 <%-- <td><input type="text" name="item_Quantity" value="<%=sc.getitems_Quantity() %>" /></td> --%>
-                <td> <input type="hidden" name=<%=i %> value=<%=sc.getTotalItemsPrice() %>><%=sc.getTotalItemsPrice() %> </td>
+               <%--  <td> <input type="hidden" name=<%=i %> value=<%=sc.getTotalItemsPrice() %>><%=sc.getTotalItemsPrice()%> </td> --%>
                 <%-- <td><a href="/Amazon/ShoppingCartServlet?type=del&id=<%=sc.getProductID() %>">DELETE</a></td> --%>
             </tr>       <%
         }

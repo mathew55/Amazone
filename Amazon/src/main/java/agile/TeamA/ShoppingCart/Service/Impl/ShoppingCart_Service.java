@@ -43,10 +43,10 @@ public class ShoppingCart_Service implements ShoppingCart_ServiceInterface {
 	}
 
 	@Override
-	public boolean addCustomerCart(ArrayList<ShoppingCart_Vo> CustomerCart) {
+	public boolean addCustomerCart(ArrayList<ShoppingCart_Vo> CustomerCart,int CustomerID) {
 		// TODO Auto-generated method stub
 		ShoppingCart_Dao SD = new ShoppingCart_Dao();
-		boolean bl=SD.addCustomerCart(CustomerCart);
+		boolean bl=SD.addCustomerCart(CustomerCart, CustomerID);
 		if(bl) {
 			return bl;
 		}else {

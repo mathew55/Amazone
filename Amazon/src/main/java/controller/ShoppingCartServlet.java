@@ -57,9 +57,11 @@ public class ShoppingCartServlet extends HttpServlet {
 		String type = request.getParameter("type");
 		if ("addcart".equals(type)) {
 			int product_id = Integer.parseInt(request.getParameter("ids"));
+			int CustomerID = Integer.parseInt(request.getParameter("cid"));
 			ShoppingCart_Service carts = new ShoppingCart_Service();
 			ArrayList<ShoppingCart_Vo> CustomerCart = carts.getProduct_Information(product_id);
-			boolean bl=carts.addCustomerCart(CustomerCart);
+			
+			boolean bl=carts.addCustomerCart(CustomerCart, CustomerID);
 			if (bl) {
 			String message = String.format(
 					"add item successful!!Automatically jump to the dashboard page for you after 3 seconds!!!!"
