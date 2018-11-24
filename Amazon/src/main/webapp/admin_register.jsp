@@ -156,7 +156,7 @@ function _refeshimg() {
 		</table>
 	</div>
 	<!-- main show -->
-	<form name="frm1" action="/Agile/AdminRegister_Servlet" method="post">
+	<form name="frm1" action="/Amazon/AdminRegister_Servlet" method="post">
 		<div>
 			<table align="center" cellSpacing="0" cellPadding="0" border="1"
 				width="28%" id="table211" height="328">

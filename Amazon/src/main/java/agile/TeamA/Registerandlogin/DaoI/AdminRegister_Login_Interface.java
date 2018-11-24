@@ -21,4 +21,5 @@ public interface AdminRegister_Login_Interface {
 	 * */	
 	Admin_RegisterLogin_Vo adminfind(String adminID);
 	
+	
 }
