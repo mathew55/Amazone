@@ -20,8 +20,7 @@ function CalculationTotal(){
 		}
 	}
 	p01.innerHTML = str;
-	
-	
+
 }
 function finishpay(){		
 		var str = "";
@@ -84,7 +83,8 @@ function finishdel(){
                 <%-- <td><input type="text" name="item_Quantity" value="<%=sc.getitems_Quantity() %>" /></td> --%>
                <%--  <td> <input type="hidden" name=<%=i %> value=<%=sc.getTotalItemsPrice() %>><%=sc.getTotalItemsPrice()%> </td> --%>
                 <%-- <td><a href="/Amazon/ShoppingCartServlet?type=del&id=<%=sc.getProductID() %>">DELETE</a></td> --%>
-            </tr>       <%
+            </tr>      
+		<%
         }
      %>
     <tr>

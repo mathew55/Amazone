@@ -9,7 +9,7 @@
 <body>
 <div align="center"><h1 >AMAZON ADMIN LOGIN</h1></div>
 
-<form action="/Agile/AdminLogin_Servlet" method="post">
+<form action="/Amazon/AdminLogin_Servlet" method="post">
 <div align="center">
 <table align="center">
 <tr>

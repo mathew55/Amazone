@@ -13,8 +13,9 @@ import agile.TeamA.Vo.ShoppingCart_Vo;
 
 public class DaoTest {
 
-	private ShoppingCart_Dao scd =new ShoppingCart_Dao();
-@Test
+private ShoppingCart_Dao scd =new ShoppingCart_Dao();
+
+/*@Test
 public void testaddCustomerCart() {
 	ArrayList<ShoppingCart_Vo> CustomerCart = new ArrayList<>();
 	//BigDecimal bg= BigDecimal.valueOf(399.99);
@@ -22,7 +23,8 @@ public void testaddCustomerCart() {
 	CustomerCart.add(scv);
 	//scd.addCustomerCart(CustomerCart,1);
 	assertTrue(scd.addCustomerCart(CustomerCart,1));
-}
+}*/
+
 @Test
 public void testGetCart() {
 	
@@ -30,11 +32,12 @@ public void testGetCart() {
 	assertNotNull(scd.GetCart(1));
 }
 
-@Test
+
+/*@Test
 public void testupdateCustomer_Cart() {
-	String ids ="1,2,3,4";
+	String ids ="1,2";
 	scd.updateCustomer_Cart(ids, 1, "buy");
 	assertNotNull(scd.updateCustomer_Cart(ids, 1, "buy"));
-}
+}*/
 
 }

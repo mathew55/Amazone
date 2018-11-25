@@ -15,19 +15,20 @@ public class Dbmanage {
 			/**
 			 * this part use for high version mysql database(over 8.0)
 			 */
-			/*
-			 * Class.forName("com.mysql.cj.jdbc.Driver"); conn =
-			 * DriverManager.getConnection(
-			 * "jdbc:mysql://localhost:3307/amazone?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8",
-			 * "root", "admin"); System.out.println("conectando"); return conn;
-			 */
+			
+			  Class.forName("com.mysql.cj.jdbc.Driver"); conn =
+			  DriverManager.getConnection(
+			  "jdbc:mysql://localhost:3307/amazone?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8",
+			  "root", "admin"); System.out.println("conectando"); 
+			  return conn;
+			 
 
 			/**
 			 * due to mysql dabase version is too high change need to use new connection-jar
 			 * version and new method to link to database
 			 */
 
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			/*Class.forName("com.mysql.cj.jdbc.Driver");
 			Properties properties = new Properties();
 			properties.setProperty("user", "root");
 			properties.setProperty("password", "admin");
@@ -35,7 +36,7 @@ public class Dbmanage {
 			properties.setProperty("autoReconnect", "true");
 			String url = "jdbc:mysql://localhost:3307/amazone";
 			conn = DriverManager.getConnection(url, properties);
-			return conn;
+			return conn;*/
 
 		} /*
 			 * catch (ClassNotFoundException e) {

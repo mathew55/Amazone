@@ -130,7 +130,6 @@ function showDivs(n) {
 <div class="div1">
 <h1><b>Already have an Account ? <br>Sign in for best experiences</b></h1>
 <table style="background-color: blue;" >
-
  <tr>
 
  <td>Username</td>
@@ -143,8 +142,6 @@ function showDivs(n) {
  </tr>
 
  <tr>
- 
-
  <td><input type="submit" value="Login"></input></td>
 <td> <input type="reset" value="Reset"></input></td>
  </tr>

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import agile.TeamA.ShoppingCart.DaoI.ShoppingCart_DaoInterface;
 import agile.TeamA.Vo.ShoppingCart_Vo;
 import agile.TeamA.utils.DB;
+import agile.TeamA.utils.Dbmanage;
 
 public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 
@@ -33,16 +34,25 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 	@Override
 	public boolean addUserHist(ArrayList<ShoppingCart_Vo> product_Information, int CustomerID) {
 		// TODO Auto-generated method stub
-		DB dbmanage = new DB();
+		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
 		// Statement sta = null;
 		try {
 			conn = dbmanage.initDB();
 			for (int i = 0; i < product_Information.size(); i++) {
 				ShoppingCart_Vo shopCart = product_Information.get(i);
-				PreparedStatement psmt = conn.prepareStatement("INSERT INTO Customer_hist VALUES(null,"
+				PreparedStatement psmt = 
+						conn.prepareStatement("INSERT INTO Customer_hist VALUES (null,?,?,?,?,?);");
+				psmt.setInt(1, CustomerID);
+				psmt.setInt(2, shopCart.getProductID());
+				psmt.setString(3, shopCart.getItemsName());
+				psmt.setDouble(4, shopCart.getItemsPrice());
+				psmt.setInt(5, shopCart.getitems_Quantity());
+				
+				
+			/*	PreparedStatement psmt = conn.prepareStatement("INSERT INTO Customer_hist VALUES( "+"null,"
 						+ shopCart.getProductID() + ',' + CustomerID + ',' + shopCart.getItemsName() + ','
-						+ shopCart.getItemsPrice() + ',' + shopCart.getitems_Quantity() + ")");
+						+ shopCart.getItemsPrice() + ',' + shopCart.getitems_Quantity() + ");");*/
 				psmt.executeUpdate();
 			}
 			return true;
@@ -57,7 +67,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 	@Override
 	public ArrayList<ShoppingCart_Vo> GetItemsInformation(int product_id) {
 		// TODO Auto-generated method stub
-		DB dbmanage = new DB();
+		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
 		// Statement sta = null;
 		ArrayList<ShoppingCart_Vo> product_Information = new ArrayList<>();
@@ -85,7 +95,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 
 	@Override
 	public ArrayList<ShoppingCart_Vo> GetCart(int Customer_id) {
-		DB dbmanage = new DB();
+		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
 		// Statement sta = null;
 		ArrayList<ShoppingCart_Vo> Cart = new ArrayList<>();
@@ -99,9 +109,9 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 				// use to get product information which in Cart
 				ShoppingCart_Vo shopCart = new ShoppingCart_Vo(rs.getInt("Cart_ID"), rs.getInt("customer_ID"),
 						rs.getString("product_Name"), rs.getDouble("product_Price"), rs.getInt("product_Quantity"));
-
 				Cart.add(shopCart);
 			}
+			System.out.println(Cart);
 		} catch (SQLException e) {
 			System.err.println("Get Cart information Exception" + e);
 
@@ -114,7 +124,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 	@Override
 	public boolean addCustomerCart(ArrayList<ShoppingCart_Vo> CustomerCart, int CustomerID) {
 		// TODO Auto-generated method stub
-		DB dbmanage = new DB();
+		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
 		// Statement sta = null;
 		try {
@@ -122,7 +132,13 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 			System.out.println("link databse successful add new item to cart");
 			 for (int i = 0; i < CustomerCart.size(); i++) {
 				 ShoppingCart_Vo shopCart = CustomerCart.get(i);
-				 PreparedStatement psmt = conn.prepareStatement("INSERT INTO CustomerCart VALUES (null,?,?,?,?,?)");
+				 
+				 /*PreparedStatement psmt = conn.prepareStatement("INSERT INTO CustomerCart VALUES(null," +
+						  shopCart.getProductID() + ',' + CustomerID + ',' +
+						  shopCart.getItemsName() + ',' + shopCart.getItemsPrice() + ',' +
+						  shopCart.getitems_Quantity() + ")");*/
+				 PreparedStatement psmt = 
+							conn.prepareStatement("INSERT INTO CustomerCart VALUES (null,?,?,?,?,?);");
 					psmt.setInt(1, CustomerID);
 					psmt.setInt(2, shopCart.getProductID());
 					psmt.setString(3, shopCart.getItemsName());
@@ -157,7 +173,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 	@Override
 	public boolean updateCustomer_Cart(String ids, int Customer_id, String type) {
 		// TODO Auto-generated method stub
-		DB dbmanage = new DB();
+		Dbmanage dbmanage = new Dbmanage();
 		Connection conn = null;
 		Statement sta = null;
 		try {
@@ -178,7 +194,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 				for (int i = 0; i < emid.length; i++) {
 					int id = Integer.parseInt(emid[i]);
 					PreparedStatement psmt = conn
-							.prepareStatement("SELECT * FROM CustomerCart WHERE customer_ID=(?) and product_ID=(?)");
+							.prepareStatement("SELECT * FROM CustomerCart WHERE customer_ID=? and product_ID=?");
 					psmt.setInt(1, Customer_id);
 					psmt.setInt(2, id);
 					ResultSet rs = psmt.executeQuery();
@@ -197,7 +213,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 				for (int j = 0; j < emid.length; j++) {
 					int id = Integer.parseInt(emid[j]);
 					PreparedStatement psmt = conn
-							.prepareStatement("DELETE FROM CustomerCart" + "WHERE product_ID=(?) and customer_ID=(?)");
+							.prepareStatement("DELETE FROM CustomerCart " + "WHERE product_ID=(?) and customer_ID=(?)");
 					psmt.setInt(1, id);
 					psmt.setInt(2, Customer_id);
 					psmt.executeUpdate();
@@ -210,12 +226,11 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 				for (int j = 0; j < emid.length; j++) {
 					int id = Integer.parseInt(emid[j]);
 					PreparedStatement psmt = conn
-							.prepareStatement("DELETE FROM CustomerCart" + "WHERE product_ID=(?) and customer_ID=(?)");
+							.prepareStatement("DELETE FROM CustomerCart " + "WHERE product_ID=(?) and customer_ID=(?)");
 					psmt.setInt(1, id);
 					psmt.setInt(2, Customer_id);
 					psmt.executeUpdate();
 				}
-
 				return true;
 			}
 
