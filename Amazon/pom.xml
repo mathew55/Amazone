@@ -36,7 +36,11 @@
   <groupId>dom4j</groupId>
   <version>1.6.1</version>
   </dependency>
-    
+    <dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jqgrid</artifactId>
+    <version>4.6.0</version>
+</dependency>
   <dependency>
    <artifactId>commons-beanutils</artifactId>
   <groupId>commons-beanutils</groupId>
@@ -87,7 +91,12 @@
     <artifactId>sqljdbc4-chs</artifactId>
     <version>4.0.2206.100</version>
 </dependency>
-
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
 
   </dependencies>
   

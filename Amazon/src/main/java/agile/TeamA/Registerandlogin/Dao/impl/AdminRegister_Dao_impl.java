@@ -52,7 +52,7 @@ public class AdminRegister_Dao_impl implements AdminRegister_Login_Interface {
 		try {
 			conn = dbmanage.initDB();
 			PreparedStatement psmt = conn.prepareStatement(
-					"INSERT INTO ADMINISTRATORS (admin_ID,admin_firstName,admin_lastName,admin_username,admin_password) VALUES(null,?,?,?,?)");
+					"INSERT INTO ADMINISTRATORS (admin_firstName,admin_lastName,admin_username,admin_password) VALUES(?,?,?,?)");
 			psmt.setString(1, admin.getFirstName());
 			psmt.setString(2, admin.getLastName());
 			psmt.setString(3, admin.getAdminName());
