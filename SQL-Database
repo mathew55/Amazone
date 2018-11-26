@@ -99,3 +99,52 @@ INSERT INTO products VALUES ( null, 'Bluetooth Receiver', 'Golvery', 8.40, 'Golv
 
 select * from products
 ORDER BY product_Name ASC;
+#--------------------------------------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS customercart;
+
+CREATE TABLE customercart (
+	Cart_ID INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    customer_ID INTEGER NOT NULL,
+	product_ID INTEGER NOT NULL,
+	product_Name VARCHAR(50) NOT NULL,
+	product_Price double NOT NULL,
+	product_Quantity INTEGER NOT NULL);
+    
+    
+    alter table  customercart 
+    add foreign key (customer_ID)
+	references customers(customer_ID);
+    
+    insert into customercart value(null,1,2,'iPod Classic 256 GB',399.99,1);
+    insert into customercart value(null,1,3,'Bose QuietComfort 35 (Series II)',35.99,1);
+    insert into customercart value(null,1,4,'1 TB HDD',399.99,1);
+    insert into customercart value(null,2,1,'fitbit',99.99,1);
+    
+    
+    
+    select * from customercart;
+    
+ #--------------------------------------------------------------------------------------------------------------
+ DROP TABLE IF EXISTS customer_hist;
+
+CREATE TABLE customer_hist (
+	hist_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    customer_ID INTEGER NOT NULL,
+	product_ID INTEGER NOT NULL,
+	product_Name VARCHAR(50) NOT NULL,
+	product_Price double NOT NULL,
+	product_Quantity INTEGER NOT NULL);
+    
+    
+    alter table  customer_hist 
+    add foreign key (customer_ID)
+	references customers(customer_ID);
+    
+    insert into customer_hist value(null,1,2,'iPod Classic 256 GB',399.99,1);
+    insert into customer_hist value(null,1,3,'Bose QuietComfort 35 (Series II)',35.99,1);
+    insert into customer_hist value(null,1,4,'1 TB HDD',399.99,1);
+    insert into customer_hist value(null,2,1,'fitbit',99.99,1);
+    
+    
+    select * from customer_hist;
