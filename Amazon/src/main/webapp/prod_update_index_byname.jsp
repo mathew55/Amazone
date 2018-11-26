@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
-<style>
-html, body{
+	<style>
+		input {
+			font-size: 120%;
+		}
+		html, body{
   height: 100%;
 }
 body { 
@@ -41,23 +40,28 @@ div, body{
   color: #fff;
   padding: 0.5em;
 }
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	</style>
 <title>Admin Console</title>
 </head>
 <body>
 	<div>
-
-	Updation Failed!
+	<h4 align="left">Stock Updation Page</h4>
 	<br>
+	<hr>
 	<br>
+	<p><b><i>Enter the product name to get details of the product from the inventory</i></b></p>
+	<form method="post" action="ProductServletName">
+	<center>
+	Product Name: <input type="text" id="pid" name="pid">
 	<br>
-	<br>
-	<br>
+	Product Manufacturer: <input type="text" id="manu" name="manu">
+	<input type="submit" value="Enter">
+	</center>
+	</form>
 	<br>
 	<br>
 	<hr>
 	<br>
 	</div>
 </body>
-</html>
+

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -41,23 +41,23 @@ div, body{
   color: #fff;
   padding: 0.5em;
 }
+
+
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin Console</title>
+</head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/Amazon/src/main/css/main.css">
+<title>Admin can now remove products by their name</title>
 </head>
 <body>
-	<div>
-
-	Updation Failed!
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<hr>
-	<br>
-	</div>
+<h1 align="center">Product Updation</h1>
+<br><br><br><br>
+<form action="/Amazon/prod_update_index_byname.jsp?type=all&p=1">
+    <input type="submit" align="center" value="Remove Product by Name" />
+</form>
+<br>
+<form action="/Amazon/prod_update_index.jsp">
+    <input type="submit" align="center" value="Remove Product by Product ID" />
+</form>
 </body>
 </html>

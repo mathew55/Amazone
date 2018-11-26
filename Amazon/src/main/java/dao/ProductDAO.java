@@ -65,5 +65,41 @@ public enum ProductDAO {
 		return product;
 
 	}
+	public Product searchName(String Name,String manu) {
+		Connection connection = getConnection();
+		
+		int product_ID=1;
+//		StringBuilder product_Name = new StringBuilder("");
+//		StringBuilder product_Manufacturer = new StringBuilder("");
+		double product_Price=0;
+		int product_Quantity=0;
+		int flag = 0;
+		try {
+			PreparedStatement psmt = connection
+					.prepareStatement("SELECT * FROM products WHERE product_Name = ? and product_Manufacturer = ?");
+			psmt.setString(1, Name);
+			psmt.setString(2, manu);
+			ResultSet rs = psmt.executeQuery();
+			if(rs.next()) {
+				//product_Name.append(rs.getString("product_Name"));
+				product_ID = rs.getInt(product_ID);
+				//product_Manufacturer.append(rs.getString("product_Manufacturer"));
+				product_Price = rs.getDouble("product_Price");
+				product_Quantity = rs.getInt("product_Quantity_Available");
+				flag =0 ;
+				//System.out.println(product_ID);
+			}
+			else {
+				flag=1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		Product product = new Product(product_ID,Name,manu,product_Price,product_Quantity,flag);
+		
+		return product;
+
+	}
 	
 }

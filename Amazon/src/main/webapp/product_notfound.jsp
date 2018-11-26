@@ -3,21 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style>
-div {
-    width: 600px;
-    border: 5px solid black;
-    border-radius: 5px;
-    padding: 25px;
-    margin: 25px;
-    background-color: brown;
-    
-}
-h2 {
-	position: center;
-	font-size:60px
-}
-</style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin Console</title>
 </head>
@@ -36,8 +22,8 @@ h2 {
 	</form>
 	<br>
 	<br>
-		Sorry, It seems like you entered an invalid product Id.
-		Try Again!
+		Sorry, It seems like you entered an invalid value.
+		Try Again with the product ID!
 	<br>
 	<br>
 	<br>
@@ -50,4 +36,4 @@ h2 {
 	<br>
 	</div>
 </body>
-</html>l>
+</html>

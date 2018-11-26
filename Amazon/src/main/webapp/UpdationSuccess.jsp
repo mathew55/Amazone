@@ -4,18 +4,42 @@
 <html>
 <head>
 <style>
-div {
-    width: 600px;
-    border: 5px solid black;
-    border-radius: 5px;
-    padding: 25px;
-    margin: 25px;
-    background-color: brown;
-    
+html, body{
+  height: 100%;
 }
-h2 {
-	position: center;
-	font-size:60px
+body { 
+			
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+			background-color: #999;
+  
+}
+
+div, body{
+  margin: 0;
+  padding: 0;
+  font-family: exo, sans-serif;
+  
+}
+.wrapper {
+  height: 100%; 
+  width: 100%; 
+}
+
+.message {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%; 
+  height:45%;
+  bottom: 0; 
+  display: block;
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.5em;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
