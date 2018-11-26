@@ -14,10 +14,17 @@ public class ProductDAOTest {
 //		fail("Not yet implemented");
 //	}
 
-	@Test
+/*	@Test
 	public void testCheckFirstName() {
-		ProductDAO.instance.checkFirstName(1);
-		Assert.assertEquals(2, Product.getquantityavailable());
-	}
+	Product mock = new Product(10,"apple","jobs",23,12,1);
+	Product p = ProductDAO.instance.checkFirstName(10);
+	assertEquals("apple",p.returnname());
+	}*/
 
+	@Test
+	public void testSearchbyname() {
+	Product mock = new Product(1,"apple","jobs",23,12,1);
+	Product p = ProductDAO.instance.searchName(mock.returnname(),mock.returnmanufacturer());
+	assertEquals("apple",p.returnname());
+	}
 }

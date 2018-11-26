@@ -11,8 +11,9 @@ public class UpdationDAOTest {
 
 	@Test
 	public void testUpdateDB() {
-		UpdationDAO.instance.UpdateDB(2, 1);
-		Assert.assertEquals(3, Product.getquantityavailable());
+		Product mock = new Product(10,"apple","jobs",23,12,1);
+		int p = UpdationDAO.instance.UpdateDB(2, 10);
+		assertEquals(1,p);
 	}
 
 }

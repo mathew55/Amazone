@@ -25,4 +25,16 @@ public class Product{
 	public static int getquantityavailable() {
 		return product_Quantity;
 	}
+	public int returnpid()
+	{
+		return product_ID;
+	}
+	public String returnname()
+	{
+		return this.product_Name;
+	}
+	public String returnmanufacturer()
+	{
+		return this.product_Manufacturer;
+	}
 }
