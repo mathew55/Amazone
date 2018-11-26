@@ -107,7 +107,7 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 			ResultSet rs = psmt.executeQuery();
 			while (rs.next()) {
 				// use to get product information which in Cart
-				ShoppingCart_Vo shopCart = new ShoppingCart_Vo(rs.getInt("Cart_ID"), rs.getInt("customer_ID"),
+				ShoppingCart_Vo shopCart = new ShoppingCart_Vo(rs.getInt("Cart_ID"), rs.getInt("product_ID"),
 						rs.getString("product_Name"), rs.getDouble("product_Price"), rs.getInt("product_Quantity"));
 				Cart.add(shopCart);
 			}
@@ -143,9 +143,27 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 					psmt.setInt(2, shopCart.getProductID());
 					psmt.setString(3, shopCart.getItemsName());
 					psmt.setDouble(4, shopCart.getItemsPrice());
-					psmt.setInt(5, shopCart.getitems_Quantity());
+					psmt.setInt(5, 1);
 					System.out.println(psmt);
 					psmt.executeUpdate(); 
+			 }
+			 System.out.println("add successful update product_Quantity_Available");
+			 for (int i = 0; i < CustomerCart.size(); i++) {
+				 ShoppingCart_Vo shopCart = CustomerCart.get(i);
+				 int product_id=shopCart.getProductID();
+			 PreparedStatement psmt = conn.prepareStatement("SELECT product_Quantity_Available FROM PRODUCTS WHERE product_ID= ?");
+				psmt.setInt(1, product_id);
+				ResultSet rs = psmt.executeQuery();
+				while (rs.next()) {					
+					int product_Quantity_Available = rs.getInt("product_Quantity_Available");		
+					 PreparedStatement psmtl = 
+							 conn.prepareStatement("UPDATE PRODUCTS SET product_Quantity_Available = ? WHERE  product_ID= ?");
+					 product_Quantity_Available =product_Quantity_Available -1;
+					 psmtl.setInt(1, product_Quantity_Available);
+					 psmtl.setInt(2, product_id);
+					 psmtl.executeUpdate();
+					 System.out.println("UPDATE SUCCESSFUL"); 
+				}
 			 }
 			/*
 			 * System.out.println("INSERT INTO CustomerCart VALUES(" + "null" + ',' +

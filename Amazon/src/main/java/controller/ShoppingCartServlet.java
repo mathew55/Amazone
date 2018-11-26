@@ -34,14 +34,59 @@ public class ShoppingCartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		int Customer_id = (int) request.getAttribute("customerid");
-		ShoppingCart_Service carts = new ShoppingCart_Service();
-		ArrayList<ShoppingCart_Vo> Cart = carts.getCart(Customer_id);
-		request.setAttribute("Cart", Cart);
-		request.setAttribute("Customer_id", Customer_id);
-		// Object a;
-		request.getRequestDispatcher("ShoppingCart.jsp").forward(request, response);
+		response.getWriter().append("get  Served at: ").append(request.getContextPath());
+		String type = request.getParameter("type");
+		if("mycart".equals(type)) {
+			String Customer_id = request.getParameter("Customer_id");
+			ShoppingCart_Service carts = new ShoppingCart_Service();
+			ArrayList<ShoppingCart_Vo> Cart = carts.getCart(Integer.parseInt(Customer_id));
+			request.setAttribute("Cart", Cart);
+			request.setAttribute("Customer_id", Customer_id);
+			request.getRequestDispatcher("/ShoppingCart.jsp").forward(request, response);
+		}
+
+		if ("addcart".equals(type)) {
+			int product_id = Integer.parseInt(request.getParameter("ids"));
+			int CustomerID = Integer.parseInt(request.getParameter("cid"));
+			ShoppingCart_Service carts = new ShoppingCart_Service();
+			ArrayList<ShoppingCart_Vo> CustomerCart = carts.getProduct_Information(product_id);
+			
+			boolean bl=carts.addCustomerCart(CustomerCart, CustomerID);
+			if (bl) {
+	/*		String message = String.format(
+					"add item successful!!Automatically jump to the dashboard page for you after 3 seconds!!!!"
+							+ "<meta http-equiv='refresh' content='3;url=%s'/>",
+					request.getContextPath() + "/ShoppingCartServlet?customerid="+CustomerID+"&&type=getcartAu");
+			request.setAttribute("message", message);*/
+			request.getRequestDispatcher("/Search.jsp").forward(request, response);
+			}else {
+				request.setAttribute("error", "failed to add goods!Automatically jump to main page!!! ");
+				request.getRequestDispatcher("Home.jsp").forward(request, response);
+				
+			}
+		}
+		
+		if ("getselectitems".equals(type)) {
+			String ids = request.getParameter("ids");			
+			String id = request.getParameter("cid");
+			int Customer_id = Integer.parseInt(id);
+			// ArrayList<ShoppingCart_Vo> userhistList=(ArrayList<ShoppingCart_Vo>)
+			// request.getAttribute("userhistList");
+			ShoppingCart_Service carts = new ShoppingCart_Service();
+			carts.updateCustomer_Cart(ids, Customer_id, "buy");
+			request.getRequestDispatcher("/Search.jsp").forward(request, response);
+		}
+		if ("del".equals(type)) {
+			String ids = request.getParameter("ids");
+			// ArrayList<ShoppingCart_Vo> userhistList=(ArrayList<ShoppingCart_Vo>)
+			// request.getAttribute("userhistList");
+			String id = request.getParameter("cid");
+			int Customer_id = Integer.parseInt(id);
+			ShoppingCart_Service carts = new ShoppingCart_Service();
+			carts.updateCustomer_Cart(ids, Customer_id, "delete");
+			request.getRequestDispatcher("/Search.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**
@@ -55,46 +100,7 @@ public class ShoppingCartServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String type = request.getParameter("type");
-		if ("addcart".equals(type)) {
-			int product_id = Integer.parseInt(request.getParameter("ids"));
-			int CustomerID = Integer.parseInt(request.getParameter("cid"));
-			ShoppingCart_Service carts = new ShoppingCart_Service();
-			ArrayList<ShoppingCart_Vo> CustomerCart = carts.getProduct_Information(product_id);
-			
-			boolean bl=carts.addCustomerCart(CustomerCart, CustomerID);
-			if (bl) {
-			String message = String.format(
-					"add item successful!!Automatically jump to the dashboard page for you after 3 seconds!!!!"
-							+ "<meta http-equiv='refresh' content='3;url=%s'/>",
-					request.getContextPath() + "/ShoppingCart.jsp");
-			request.setAttribute("message", message);
-			request.getRequestDispatcher("/message.jsp").forward(request, response);
-			}else {
-				request.setAttribute("error", "failed to add goods!Automatically jump to main page!!! ");
-				request.getRequestDispatcher("Home.jsp").forward(request, response);
-				
-			}
-		}
-		if ("getItems".equals(type)) {
-			String ids = request.getParameter("ids");
-			String id = request.getParameter("cid");
-			int Customer_id = Integer.parseInt(id);
-			// ArrayList<ShoppingCart_Vo> userhistList=(ArrayList<ShoppingCart_Vo>)
-			// request.getAttribute("userhistList");
-			ShoppingCart_Service carts = new ShoppingCart_Service();
-			carts.updateCustomer_Cart(ids, Customer_id, "buy");
-			request.getRequestDispatcher("/ShoppingCart.jsp").forward(request, response);
-		}
-		if ("del".equals(type)) {
-			String ids = request.getParameter("ids");
-			// ArrayList<ShoppingCart_Vo> userhistList=(ArrayList<ShoppingCart_Vo>)
-			// request.getAttribute("userhistList");
-			String id = request.getParameter("cid");
-			int Customer_id = Integer.parseInt(id);
-			ShoppingCart_Service carts = new ShoppingCart_Service();
-			carts.updateCustomer_Cart(ids, Customer_id, "delete");
-			request.getRequestDispatcher("/ShoppingCart.jsp").forward(request, response);
-		}
+	
 	}
 
 }

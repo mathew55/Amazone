@@ -25,19 +25,19 @@ public void testaddCustomerCart() {
 	assertTrue(scd.addCustomerCart(CustomerCart,1));
 }*/
 
-@Test
+/*@Test
 public void testGetCart() {
 	
 	scd.GetCart(1);
 	assertNotNull(scd.GetCart(1));
-}
+}*/
 
 
-/*@Test
+@Test
 public void testupdateCustomer_Cart() {
-	String ids ="1,2";
+	String ids ="1,2,";
 	scd.updateCustomer_Cart(ids, 1, "buy");
 	assertNotNull(scd.updateCustomer_Cart(ids, 1, "buy"));
-}*/
+}
 
 }
