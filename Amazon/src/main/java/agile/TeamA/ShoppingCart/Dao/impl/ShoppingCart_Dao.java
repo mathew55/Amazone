@@ -207,9 +207,10 @@ public class ShoppingCart_Dao implements ShoppingCart_DaoInterface {
 			 */
 			String[] emid = ids.split(",");
 			if ("buy".equals(type)) {
-				ArrayList<ShoppingCart_Vo> Cart = new ArrayList<>();
+				
 				ShoppingCart_Dao sd = new ShoppingCart_Dao();
 				for (int i = 0; i < emid.length; i++) {
+					ArrayList<ShoppingCart_Vo> Cart = new ArrayList<>();
 					int id = Integer.parseInt(emid[i]);
 					PreparedStatement psmt = conn
 							.prepareStatement("SELECT * FROM CustomerCart WHERE customer_ID=? and product_ID=?");

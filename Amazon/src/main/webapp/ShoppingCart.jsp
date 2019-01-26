@@ -55,9 +55,9 @@ function finishdel(){
 		if(str == ""){		
 			alert("please select items!");
 		}else{
-			var tep = confirm("do you want to buy these select items?");
+			var tep = confirm("do you want to delete these select items?");
 			if (tep) {
-				location.href = "/Amazon/ShoppingCartServlet?ids=" + str + "&&cid="+ cid
+				location.href = "/Amazon/ShoppingCartServlet?ids=" + str + "&&cid=1"
 				+ "&&type=del";
 				}
 		}		

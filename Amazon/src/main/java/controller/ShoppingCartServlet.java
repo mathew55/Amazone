@@ -74,7 +74,11 @@ public class ShoppingCartServlet extends HttpServlet {
 			// request.getAttribute("userhistList");
 			ShoppingCart_Service carts = new ShoppingCart_Service();
 			carts.updateCustomer_Cart(ids, Customer_id, "buy");
-			request.getRequestDispatcher("/Search.jsp").forward(request, response);
+			String message = String.format("buy items successful!!Automatically jump to the login page for you after 3 seconds!!"
+                    + "<meta http-equiv='refresh' content='3;url=%s'/>", 
+                   request.getContextPath()+"/Search.jsp");
+			request.setAttribute("message",message);
+            request.getRequestDispatcher("/message.jsp").forward(request,response);
 		}
 		if ("del".equals(type)) {
 			String ids = request.getParameter("ids");

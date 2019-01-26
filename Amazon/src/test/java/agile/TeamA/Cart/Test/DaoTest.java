@@ -14,8 +14,7 @@ import agile.TeamA.Vo.ShoppingCart_Vo;
 public class DaoTest {
 
 private ShoppingCart_Dao scd =new ShoppingCart_Dao();
-
-/*@Test
+@Test
 public void testaddCustomerCart() {
 	ArrayList<ShoppingCart_Vo> CustomerCart = new ArrayList<>();
 	//BigDecimal bg= BigDecimal.valueOf(399.99);
@@ -23,14 +22,14 @@ public void testaddCustomerCart() {
 	CustomerCart.add(scv);
 	//scd.addCustomerCart(CustomerCart,1);
 	assertTrue(scd.addCustomerCart(CustomerCart,1));
-}*/
+}
 
-/*@Test
+@Test
 public void testGetCart() {
 	
 	scd.GetCart(1);
 	assertNotNull(scd.GetCart(1));
-}*/
+}
 
 
 @Test

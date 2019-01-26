@@ -116,13 +116,13 @@ function _refeshimg() {
 			c5.innerHTML = "Your AdminID is illegal";
 			flg = 1;
 		}
-		if (tep == 0 && flg == 0) {
-			alert("admin register scuessful");
 			return true;
+		/* if (tep == 0 && flg == 0) {
+			alert("admin register scuessful");
 		} else {
 			alert("your information have wrong!");
 			return false;
-		}
+		} */
 	}
 	/*  verfity password as same */
 	/* function checkpwd() {
